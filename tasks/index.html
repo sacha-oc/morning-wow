@@ -5,357 +5,433 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#5B8A72">
-  <title>Sacha Task Dashboard</title>
+  <meta name="theme-color" content="#1a1a2e">
+  <title>Sacha Tasks</title>
   <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0f0f1a;
+      --surface: rgba(255,255,255,0.05);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8f0;
+      --text-secondary: rgba(255,255,255,0.5);
+      --accent: #5B8A72;
+      --accent-glow: rgba(91,138,114,0.3);
+      --mint: #98D8C8;
+      --coral: #E57373;
+      --amber: #F5A623;
+      --blue: #5C9CE6;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f5f5f0;
-      color: #1a1a1a;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-font-smoothing: antialiased;
     }
+    
+    /* Header */
     .header {
-      background: linear-gradient(135deg, #5B8A72, #3D5A4C);
-      color: white;
-      padding: 20px 16px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding-top: max(20px, env(safe-area-inset-top));
+      padding: max(env(safe-area-inset-top), 16px) 20px 20px;
+      background: linear-gradient(180deg, rgba(91,138,114,0.15) 0%, transparent 100%);
     }
-    .header h1 { font-size: 20px; font-weight: 700; }
-    .header .subtitle { font-size: 13px; opacity: 0.8; margin-top: 4px; }
-    .stats-bar {
+    .header-top {
       display: flex;
-      gap: 8px;
-      margin-top: 12px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
-    .stat {
-      background: rgba(255,255,255,0.15);
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--mint));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .logo h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .refresh-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 8px 14px;
-      font-size: 12px;
-      white-space: nowrap;
-      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
     }
-    .stat .num { font-size: 20px; font-weight: 700; display: block; }
+    .refresh-icon:active { transform: scale(0.9); background: var(--surface-hover); }
+    .refresh-icon.spinning { animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 10px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--text), var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-card:nth-child(2) .stat-value { background: linear-gradient(135deg, var(--accent), var(--mint)); -webkit-background-clip: text; }
+    .stat-card:nth-child(3) .stat-value { background: linear-gradient(135deg, var(--amber), #FFD93D); -webkit-background-clip: text; }
+    .stat-card:nth-child(4) .stat-value { background: linear-gradient(135deg, var(--coral), #FF8A80); -webkit-background-clip: text; }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Filters */
     .filters {
       display: flex;
       gap: 6px;
-      padding: 12px 16px;
+      padding: 16px 20px 8px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .filter-btn {
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1.5px solid #ddd;
-      background: white;
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-pill {
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
       font-size: 13px;
+      font-weight: 500;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.2s;
+      transition: all 0.25s;
     }
-    .filter-btn.active {
-      background: #5B8A72;
+    .filter-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
       color: white;
-      border-color: #5B8A72;
+      box-shadow: 0 4px 15px var(--accent-glow);
     }
-    .tasks { padding: 0 16px 100px; }
-    .task-card {
-      background: white;
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      transition: transform 0.15s;
+
+    /* Progress bar */
+    .progress-wrap {
+      padding: 4px 20px 12px;
+    }
+    .progress-bar {
+      height: 4px;
+      background: var(--surface);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--mint));
+      border-radius: 4px;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .progress-text {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    /* Tasks */
+    .tasks-container { padding: 0 20px 120px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      padding: 16px 0 8px;
+    }
+    .task {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 8px;
       cursor: pointer;
+      transition: all 0.2s;
+      animation: fadeIn 0.3s ease-out;
     }
-    .task-card:active { transform: scale(0.98); }
-    .task-header {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .task:active { transform: scale(0.985); background: var(--surface-hover); }
+    .task-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 8px;
+      gap: 10px;
     }
-    .task-name {
-      font-size: 15px;
+    .task-title {
+      font-size: 14px;
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.4;
       flex: 1;
     }
-    .task-ordre {
-      background: #5B8A72;
-      color: white;
+    .task-rank {
+      min-width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent), #4a7a62);
       border-radius: 8px;
-      padding: 2px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       flex-shrink: 0;
     }
-    .task-meta {
+    .task-badges {
       display: flex;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 10px;
       flex-wrap: wrap;
     }
     .badge {
       padding: 3px 10px;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.2px;
     }
-    .badge-done { background: #d4edda; color: #155724; }
-    .badge-encours { background: #fff3cd; color: #856404; }
-    .badge-backlog { background: #e2e3e5; color: #383d41; }
-    .badge-attente { background: #f8d7da; color: #721c24; }
-    .badge-relire { background: #cce5ff; color: #004085; }
-    .badge-todo { background: #e2e3e5; color: #383d41; }
-    .badge-priorite-haute { background: #f8d7da; color: #721c24; }
-    .badge-priorite-moyenne { background: #fff3cd; color: #856404; }
-    .badge-effort { background: #f0f0f0; color: #555; }
-    .task-notes {
-      margin-top: 8px;
+    .b-done { background: rgba(91,138,114,0.15); color: var(--mint); }
+    .b-encours { background: rgba(245,166,35,0.15); color: var(--amber); }
+    .b-backlog { background: rgba(255,255,255,0.06); color: var(--text-secondary); }
+    .b-attente { background: rgba(229,115,115,0.15); color: var(--coral); }
+    .b-relire { background: rgba(92,156,230,0.15); color: var(--blue); }
+    .b-todo { background: rgba(255,255,255,0.06); color: var(--text-secondary); }
+    .b-type { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
+    .b-effort { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
+    .b-haute { background: rgba(229,115,115,0.1); color: var(--coral); }
+    .task-detail {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
       font-size: 13px;
-      color: #666;
-      line-height: 1.4;
+      line-height: 1.5;
+      color: var(--text-secondary);
       display: none;
     }
-    .task-card.expanded .task-notes { display: block; }
-    .loading {
+    .task.open .task-detail { display: block; }
+    .task-detail .livrable {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(91,138,114,0.1);
+      border-radius: 8px;
+      color: var(--mint);
+      font-size: 12px;
+    }
+
+    /* Empty state */
+    .empty {
       text-align: center;
       padding: 60px 20px;
-      color: #888;
-      font-size: 15px;
+      color: var(--text-secondary);
     }
-    .loading .spinner {
-      width: 32px;
-      height: 32px;
-      border: 3px solid #eee;
-      border-top-color: #5B8A72;
+    .empty-icon { font-size: 48px; margin-bottom: 12px; }
+    .empty-text { font-size: 15px; }
+
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .loader {
+      width: 36px; height: 36px;
+      border: 3px solid var(--surface);
+      border-top-color: var(--accent);
       border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      animation: spin 0.7s linear infinite;
       margin: 0 auto 16px;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .error { color: #dc3545; text-align: center; padding: 40px; }
-    .refresh-btn {
-      position: fixed;
-      bottom: max(20px, env(safe-area-inset-bottom));
-      right: 20px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #5B8A72;
-      color: white;
-      border: none;
-      font-size: 24px;
-      box-shadow: 0 4px 12px rgba(91,138,114,0.4);
-      cursor: pointer;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .refresh-btn:active { transform: scale(0.9); }
-    .last-updated {
+    .load-text { color: var(--text-secondary); font-size: 14px; }
+    
+    /* Last updated */
+    .updated {
       text-align: center;
       font-size: 11px;
-      color: #aaa;
-      padding: 8px;
+      color: var(--text-secondary);
+      padding: 4px 20px;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>🦊 Sacha Task Dashboard</h1>
-    <div class="subtitle">Notion Tracker — Secretair</div>
-    <div class="stats-bar" id="stats"></div>
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="last-updated" id="lastUpdated"></div>
-  <div class="tasks" id="tasks">
-    <div class="loading">
-      <div class="spinner"></div>
-      Chargement des tâches...
+    <div class="header-top">
+      <div class="logo">
+        <div class="logo-icon">🦊</div>
+        <h1>Tasks</h1>
+      </div>
+      <button class="refresh-icon" id="refreshBtn" onclick="refresh()">↻</button>
     </div>
+    <div class="stats" id="stats"></div>
   </div>
-  <button class="refresh-btn" onclick="loadTasks()" title="Rafraîchir">↻</button>
+
+  <div class="progress-wrap" id="progressWrap"></div>
+  <div class="filters" id="filters"></div>
+  <div class="updated" id="updated"></div>
+  <div class="tasks-container" id="tasks">
+    <div class="loading"><div class="loader"></div><div class="load-text">Chargement...</div></div>
+  </div>
 
   <script src="data.js"></script>
   <script>
-    const NOTION_PROXY_URL = 'https://notion-proxy.secretair.workers.dev';
-    const DB_ID = '30497be2-94c5-8105-bfe9-cad4c0f7806a';
-    
-    let allTasks = [];
-    let currentFilter = 'all';
+    let tasks = [], filter = 'active';
+    const statusClass = { 'Done':'done', 'En cours':'encours', 'Backlog':'backlog', 'Attente JS':'attente', 'A relire':'relire', 'À relire':'relire', 'To Do':'todo', 'À faire':'todo' };
 
-    const statusMap = {
-      'Done': 'done',
-      'En cours': 'encours',
-      'Backlog': 'backlog',
-      'Attente JS': 'attente',
-      'A relire': 'relire',
-      'À relire': 'relire',
-      'To Do': 'todo',
-      'À faire': 'todo',
-    };
-
-    function getStatusClass(status) {
-      return statusMap[status] || 'backlog';
+    function parse(raw) {
+      return (raw||[]).map(r => {
+        const p = r.properties||{};
+        return {
+          id: r.id,
+          name: p.Name?.title?.[0]?.plain_text || '?',
+          statut: p.Statut?.select?.name || '?',
+          priorite: p.Priorite?.select?.name || '',
+          ordre: p.Ordre?.number ?? 999,
+          effort: p.Effort?.select?.name || '',
+          type: p.Type?.select?.name || '',
+          projet: p.Projet?.select?.name || '',
+          notes: p['Notes JS']?.rich_text?.[0]?.plain_text || '',
+          livrable: p.Livrable?.rich_text?.[0]?.plain_text || p.Livrable?.url || '',
+        };
+      }).sort((a,b) => a.ordre - b.ordre);
     }
 
-    async function loadTasks() {
-      const container = document.getElementById('tasks');
-      container.innerHTML = '<div class="loading"><div class="spinner"></div>Chargement...</div>';
-      
-      try {
-        // Try Notion proxy first, fallback to local cache
-        let tasks;
-        try {
-          const res = await fetch(`${NOTION_PROXY_URL}/query`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              database_id: DB_ID,
-              sorts: [{ property: 'Ordre', direction: 'ascending' }]
-            })
-          });
-          if (!res.ok) throw new Error('Proxy error');
-          const data = await res.json();
-          tasks = data.results;
-        } catch {
-          // Fallback: use embedded data
-          tasks = window.__CACHED_TASKS || [];
-          if (!tasks.length) {
-            container.innerHTML = '<div class="error">❌ Impossible de charger les tâches.<br>Le proxy Notion n\'est pas configuré.</div>';
-            return;
-          }
-        }
+    function render() {
+      const total = tasks.length;
+      const done = tasks.filter(t=>t.statut==='Done').length;
+      const encours = tasks.filter(t=>t.statut==='En cours').length;
+      const attente = tasks.filter(t=>t.statut==='Attente JS').length;
+      const pct = total ? Math.round(done/total*100) : 0;
 
-        allTasks = tasks.map(r => {
-          const p = r.properties || {};
-          return {
-            id: r.id,
-            name: (p.Name?.title?.[0]?.plain_text) || '?',
-            statut: p.Statut?.select?.name || '?',
-            priorite: p.Priorite?.select?.name || '',
-            ordre: p.Ordre?.number ?? 999,
-            effort: p.Effort?.select?.name || '',
-            type: p.Type?.select?.name || '',
-            projet: p.Projet?.select?.name || '',
-            notes: (p['Notes JS']?.rich_text?.[0]?.plain_text) || '',
-            livrable: (p.Livrable?.rich_text?.[0]?.plain_text) || '',
-          };
-        });
-
-        renderStats();
-        renderFilters();
-        renderTasks();
-        document.getElementById('lastUpdated').textContent = 
-          `Mis à jour : ${new Date().toLocaleTimeString('fr-FR')}`;
-        
-        // Cache for offline
-        localStorage.setItem('cachedTasks', JSON.stringify(allTasks));
-      } catch (err) {
-        // Try localStorage cache
-        const cached = localStorage.getItem('cachedTasks');
-        if (cached) {
-          allTasks = JSON.parse(cached);
-          renderStats();
-          renderFilters();
-          renderTasks();
-          document.getElementById('lastUpdated').textContent = '⚠️ Données en cache (hors ligne)';
-        } else {
-          container.innerHTML = `<div class="error">❌ ${err.message}</div>`;
-        }
-      }
-    }
-
-    function renderStats() {
-      const total = allTasks.length;
-      const done = allTasks.filter(t => t.statut === 'Done').length;
-      const enCours = allTasks.filter(t => t.statut === 'En cours').length;
-      const attente = allTasks.filter(t => t.statut === 'Attente JS').length;
-      
       document.getElementById('stats').innerHTML = `
-        <div class="stat"><span class="num">${total}</span>Total</div>
-        <div class="stat"><span class="num">${done}</span>Done ✅</div>
-        <div class="stat"><span class="num">${enCours}</span>En cours</div>
-        <div class="stat"><span class="num">${attente}</span>Attente JS</div>
+        <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Total</div></div>
+        <div class="stat-card"><div class="stat-value">${done}</div><div class="stat-label">Done</div></div>
+        <div class="stat-card"><div class="stat-value">${encours}</div><div class="stat-label">En cours</div></div>
+        <div class="stat-card"><div class="stat-value">${attente}</div><div class="stat-label">Attente</div></div>
       `;
-    }
 
-    function renderFilters() {
-      const statuts = ['all', ...new Set(allTasks.map(t => t.statut))];
-      document.getElementById('filters').innerHTML = statuts.map(s => 
-        `<button class="filter-btn ${s === currentFilter ? 'active' : ''}" 
-                onclick="setFilter('${s}')">${s === 'all' ? 'Toutes' : s}</button>`
+      document.getElementById('progressWrap').innerHTML = `
+        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <div class="progress-text">${pct}% complété — ${done}/${total} tâches</div>
+      `;
+
+      const filters = ['active','all','Done','En cours','Attente JS','Backlog','A relire'];
+      document.getElementById('filters').innerHTML = filters.map(f =>
+        `<button class="filter-pill ${f===filter?'active':''}" onclick="setFilter('${f}')">${f==='active'?'⚡ Actives':f==='all'?'Toutes':f}</button>`
       ).join('');
-    }
 
-    function setFilter(filter) {
-      currentFilter = filter;
-      renderFilters();
-      renderTasks();
-    }
+      let filtered;
+      if (filter === 'active') filtered = tasks.filter(t => t.statut !== 'Done');
+      else if (filter === 'all') filtered = tasks;
+      else filtered = tasks.filter(t => t.statut === filter);
 
-    function renderTasks() {
-      const filtered = currentFilter === 'all' 
-        ? allTasks.filter(t => t.statut !== 'Done')
-        : allTasks.filter(t => t.statut === currentFilter);
-      
       if (!filtered.length) {
-        document.getElementById('tasks').innerHTML = 
-          '<div class="loading" style="padding:40px">Aucune tâche 🎉</div>';
+        document.getElementById('tasks').innerHTML = `<div class="empty"><div class="empty-icon">🎉</div><div class="empty-text">Aucune tâche</div></div>`;
         return;
       }
 
-      document.getElementById('tasks').innerHTML = filtered.map(t => `
-        <div class="task-card" onclick="this.classList.toggle('expanded')">
-          <div class="task-header">
-            <div class="task-name">${escHtml(t.name)}</div>
-            ${t.ordre < 999 ? `<div class="task-ordre">#${t.ordre}</div>` : ''}
-          </div>
-          <div class="task-meta">
-            <span class="badge badge-${getStatusClass(t.statut)}">${escHtml(t.statut)}</span>
-            ${t.priorite ? `<span class="badge badge-priorite-${t.priorite.toLowerCase()}">${escHtml(t.priorite)}</span>` : ''}
-            ${t.effort ? `<span class="badge badge-effort">${escHtml(t.effort)}</span>` : ''}
-            ${t.type ? `<span class="badge badge-effort">${escHtml(t.type)}</span>` : ''}
-          </div>
-          ${t.notes ? `<div class="task-notes">${escHtml(t.notes)}</div>` : ''}
-          ${t.livrable ? `<div class="task-notes">📦 ${escHtml(t.livrable)}</div>` : ''}
-        </div>
-      `).join('');
+      // Group by status
+      const groups = {};
+      filtered.forEach(t => {
+        const g = t.statut;
+        if (!groups[g]) groups[g] = [];
+        groups[g].push(t);
+      });
+
+      const order = ['En cours','Backlog','A relire','À relire','To Do','À faire','Attente JS','Done'];
+      let html = '';
+      order.forEach(status => {
+        const g = groups[status];
+        if (!g) return;
+        html += `<div class="section-label">${status} (${g.length})</div>`;
+        g.forEach((t,i) => {
+          html += `<div class="task" onclick="this.classList.toggle('open')" style="animation-delay:${i*0.05}s">
+            <div class="task-top">
+              <div class="task-title">${esc(t.name)}</div>
+              ${t.ordre<999?`<div class="task-rank">${t.ordre}</div>`:''}
+            </div>
+            <div class="task-badges">
+              <span class="badge b-${statusClass[t.statut]||'backlog'}">${esc(t.statut)}</span>
+              ${t.priorite?`<span class="badge b-haute">${esc(t.priorite)}</span>`:''}
+              ${t.effort?`<span class="badge b-effort">${esc(t.effort)}</span>`:''}
+              ${t.type?`<span class="badge b-type">${esc(t.type)}</span>`:''}
+            </div>
+            ${t.notes||t.livrable?`<div class="task-detail">
+              ${t.notes?`<div>${esc(t.notes)}</div>`:''}
+              ${t.livrable?`<div class="livrable">📦 ${esc(t.livrable)}</div>`:''}
+            </div>`:''}
+          </div>`;
+        });
+      });
+      document.getElementById('tasks').innerHTML = html;
     }
 
-    function escHtml(s) {
-      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    function setFilter(f) { filter = f; render(); }
+    function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    async function refresh() {
+      const btn = document.getElementById('refreshBtn');
+      btn.classList.add('spinning');
+      try {
+        // Try proxy (won't work without setup, falls back to cached)
+        const res = await fetch('https://notion-proxy.secretair.workers.dev/query', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ database_id:'30497be2-94c5-8105-bfe9-cad4c0f7806a', sorts:[{property:'Ordre',direction:'ascending'}] })
+        });
+        if (res.ok) { tasks = parse((await res.json()).results); localStorage.setItem('tasks', JSON.stringify(tasks)); }
+      } catch {}
+      render();
+      document.getElementById('updated').textContent = `Mis à jour ${new Date().toLocaleTimeString('fr-FR')}`;
+      setTimeout(() => btn.classList.remove('spinning'), 500);
     }
 
-    // Load on start + try cached first for instant render
-    const cached = localStorage.getItem('cachedTasks');
-    if (cached) {
-      allTasks = JSON.parse(cached);
-      renderStats();
-      renderFilters();
-      renderTasks();
-      document.getElementById('lastUpdated').textContent = '⏳ Actualisation...';
-    }
-    loadTasks();
-
-    // Auto-refresh every 5 minutes
-    setInterval(loadTasks, 5 * 60 * 1000);
-
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    }
+    // Init
+    const cached = localStorage.getItem('tasks');
+    if (cached) tasks = JSON.parse(cached);
+    if (window.__CACHED_TASKS) { tasks = parse(window.__CACHED_TASKS); localStorage.setItem('tasks', JSON.stringify(tasks)); }
+    render();
+    document.getElementById('updated').textContent = `Données du ${new Date().toLocaleDateString('fr-FR')}`;
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+    setInterval(refresh, 5*60*1000);
   </script>
 </body>
 </html>
