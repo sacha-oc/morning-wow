@@ -1,0 +1,21 @@
+{
+  "name": "Sacha Task Dashboard",
+  "short_name": "Tasks",
+  "description": "Notion task tracker for Secretair",
+  "start_url": "/task-dashboard/",
+  "display": "standalone",
+  "background_color": "#f5f5f0",
+  "theme_color": "#5B8A72",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

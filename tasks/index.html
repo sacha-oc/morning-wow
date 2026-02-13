@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#5B8A72">
+  <title>Sacha Task Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .header {
+      background: linear-gradient(135deg, #5B8A72, #3D5A4C);
+      color: white;
+      padding: 20px 16px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding-top: max(20px, env(safe-area-inset-top));
+    }
+    .header h1 { font-size: 20px; font-weight: 700; }
+    .header .subtitle { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+    .stats-bar {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .stat {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 12px;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .stat .num { font-size: 20px; font-weight: 700; display: block; }
+    .filters {
+      display: flex;
+      gap: 6px;
+      padding: 12px 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid #ddd;
+      background: white;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: #5B8A72;
+      color: white;
+      border-color: #5B8A72;
+    }
+    .tasks { padding: 0 16px 100px; }
+    .task-card {
+      background: white;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.15s;
+      cursor: pointer;
+    }
+    .task-card:active { transform: scale(0.98); }
+    .task-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .task-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      flex: 1;
+    }
+    .task-ordre {
+      background: #5B8A72;
+      color: white;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .task-meta {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-done { background: #d4edda; color: #155724; }
+    .badge-encours { background: #fff3cd; color: #856404; }
+    .badge-backlog { background: #e2e3e5; color: #383d41; }
+    .badge-attente { background: #f8d7da; color: #721c24; }
+    .badge-relire { background: #cce5ff; color: #004085; }
+    .badge-todo { background: #e2e3e5; color: #383d41; }
+    .badge-priorite-haute { background: #f8d7da; color: #721c24; }
+    .badge-priorite-moyenne { background: #fff3cd; color: #856404; }
+    .badge-effort { background: #f0f0f0; color: #555; }
+    .task-notes {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+      display: none;
+    }
+    .task-card.expanded .task-notes { display: block; }
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: #888;
+      font-size: 15px;
+    }
+    .loading .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #eee;
+      border-top-color: #5B8A72;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error { color: #dc3545; text-align: center; padding: 40px; }
+    .refresh-btn {
+      position: fixed;
+      bottom: max(20px, env(safe-area-inset-bottom));
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #5B8A72;
+      color: white;
+      border: none;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(91,138,114,0.4);
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .refresh-btn:active { transform: scale(0.9); }
+    .last-updated {
+      text-align: center;
+      font-size: 11px;
+      color: #aaa;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🦊 Sacha Task Dashboard</h1>
+    <div class="subtitle">Notion Tracker — Secretair</div>
+    <div class="stats-bar" id="stats"></div>
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="last-updated" id="lastUpdated"></div>
+  <div class="tasks" id="tasks">
+    <div class="loading">
+      <div class="spinner"></div>
+      Chargement des tâches...
+    </div>
+  </div>
+  <button class="refresh-btn" onclick="loadTasks()" title="Rafraîchir">↻</button>
+
+  <script src="data.js"></script>
+  <script>
+    const NOTION_PROXY_URL = 'https://notion-proxy.secretair.workers.dev';
+    const DB_ID = '30497be2-94c5-8105-bfe9-cad4c0f7806a';
+    
+    let allTasks = [];
+    let currentFilter = 'all';
+
+    const statusMap = {
+      'Done': 'done',
+      'En cours': 'encours',
+      'Backlog': 'backlog',
+      'Attente JS': 'attente',
+      'A relire': 'relire',
+      'À relire': 'relire',
+      'To Do': 'todo',
+      'À faire': 'todo',
+    };
+
+    function getStatusClass(status) {
+      return statusMap[status] || 'backlog';
+    }
+
+    async function loadTasks() {
+      const container = document.getElementById('tasks');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div>Chargement...</div>';
+      
+      try {
+        // Try Notion proxy first, fallback to local cache
+        let tasks;
+        try {
+          const res = await fetch(`${NOTION_PROXY_URL}/query`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              database_id: DB_ID,
+              sorts: [{ property: 'Ordre', direction: 'ascending' }]
+            })
+          });
+          if (!res.ok) throw new Error('Proxy error');
+          const data = await res.json();
+          tasks = data.results;
+        } catch {
+          // Fallback: use embedded data
+          tasks = window.__CACHED_TASKS || [];
+          if (!tasks.length) {
+            container.innerHTML = '<div class="error">❌ Impossible de charger les tâches.<br>Le proxy Notion n\'est pas configuré.</div>';
+            return;
+          }
+        }
+
+        allTasks = tasks.map(r => {
+          const p = r.properties || {};
+          return {
+            id: r.id,
+            name: (p.Name?.title?.[0]?.plain_text) || '?',
+            statut: p.Statut?.select?.name || '?',
+            priorite: p.Priorite?.select?.name || '',
+            ordre: p.Ordre?.number ?? 999,
+            effort: p.Effort?.select?.name || '',
+            type: p.Type?.select?.name || '',
+            projet: p.Projet?.select?.name || '',
+            notes: (p['Notes JS']?.rich_text?.[0]?.plain_text) || '',
+            livrable: (p.Livrable?.rich_text?.[0]?.plain_text) || '',
+          };
+        });
+
+        renderStats();
+        renderFilters();
+        renderTasks();
+        document.getElementById('lastUpdated').textContent = 
+          `Mis à jour : ${new Date().toLocaleTimeString('fr-FR')}`;
+        
+        // Cache for offline
+        localStorage.setItem('cachedTasks', JSON.stringify(allTasks));
+      } catch (err) {
+        // Try localStorage cache
+        const cached = localStorage.getItem('cachedTasks');
+        if (cached) {
+          allTasks = JSON.parse(cached);
+          renderStats();
+          renderFilters();
+          renderTasks();
+          document.getElementById('lastUpdated').textContent = '⚠️ Données en cache (hors ligne)';
+        } else {
+          container.innerHTML = `<div class="error">❌ ${err.message}</div>`;
+        }
+      }
+    }
+
+    function renderStats() {
+      const total = allTasks.length;
+      const done = allTasks.filter(t => t.statut === 'Done').length;
+      const enCours = allTasks.filter(t => t.statut === 'En cours').length;
+      const attente = allTasks.filter(t => t.statut === 'Attente JS').length;
+      
+      document.getElementById('stats').innerHTML = `
+        <div class="stat"><span class="num">${total}</span>Total</div>
+        <div class="stat"><span class="num">${done}</span>Done ✅</div>
+        <div class="stat"><span class="num">${enCours}</span>En cours</div>
+        <div class="stat"><span class="num">${attente}</span>Attente JS</div>
+      `;
+    }
+
+    function renderFilters() {
+      const statuts = ['all', ...new Set(allTasks.map(t => t.statut))];
+      document.getElementById('filters').innerHTML = statuts.map(s => 
+        `<button class="filter-btn ${s === currentFilter ? 'active' : ''}" 
+                onclick="setFilter('${s}')">${s === 'all' ? 'Toutes' : s}</button>`
+      ).join('');
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      renderFilters();
+      renderTasks();
+    }
+
+    function renderTasks() {
+      const filtered = currentFilter === 'all' 
+        ? allTasks.filter(t => t.statut !== 'Done')
+        : allTasks.filter(t => t.statut === currentFilter);
+      
+      if (!filtered.length) {
+        document.getElementById('tasks').innerHTML = 
+          '<div class="loading" style="padding:40px">Aucune tâche 🎉</div>';
+        return;
+      }
+
+      document.getElementById('tasks').innerHTML = filtered.map(t => `
+        <div class="task-card" onclick="this.classList.toggle('expanded')">
+          <div class="task-header">
+            <div class="task-name">${escHtml(t.name)}</div>
+            ${t.ordre < 999 ? `<div class="task-ordre">#${t.ordre}</div>` : ''}
+          </div>
+          <div class="task-meta">
+            <span class="badge badge-${getStatusClass(t.statut)}">${escHtml(t.statut)}</span>
+            ${t.priorite ? `<span class="badge badge-priorite-${t.priorite.toLowerCase()}">${escHtml(t.priorite)}</span>` : ''}
+            ${t.effort ? `<span class="badge badge-effort">${escHtml(t.effort)}</span>` : ''}
+            ${t.type ? `<span class="badge badge-effort">${escHtml(t.type)}</span>` : ''}
+          </div>
+          ${t.notes ? `<div class="task-notes">${escHtml(t.notes)}</div>` : ''}
+          ${t.livrable ? `<div class="task-notes">📦 ${escHtml(t.livrable)}</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Load on start + try cached first for instant render
+    const cached = localStorage.getItem('cachedTasks');
+    if (cached) {
+      allTasks = JSON.parse(cached);
+      renderStats();
+      renderFilters();
+      renderTasks();
+      document.getElementById('lastUpdated').textContent = '⏳ Actualisation...';
+    }
+    loadTasks();
+
+    // Auto-refresh every 5 minutes
+    setInterval(loadTasks, 5 * 60 * 1000);
+
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
