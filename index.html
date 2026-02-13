@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif; background: #0a0a0a; color: #e5e5e5; padding: 24px 16px; max-width: 500px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
+.header { text-align: center; margin-bottom: 32px; }
+.header .emoji { font-size: 48px; margin-bottom: 12px; }
+.header h1 { font-size: 26px; color: #fff; margin-bottom: 6px; font-weight: 800; }
+.header .sub { font-size: 15px; color: #888; }
+
+.section-title { font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 16px; }
+
+/* Matrix */
+.matrix-box { background: #1a1a1a; border-radius: 20px; padding: 24px; margin-bottom: 24px; }
+.matrix-header { display: flex; gap: 6px; padding-left: 110px; margin-bottom: 12px; }
+.matrix-header span { width: 40px; text-align: center; font-size: 14px; font-weight: 700; }
+.matrix-row { display: flex; align-items: center; margin-bottom: 10px; }
+.matrix-label { width: 110px; font-size: 14px; color: #ccc; flex-shrink: 0; }
+.matrix-dots { display: flex; gap: 6px; }
+.dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; }
+.dot.full { background: #5B8A72; color: #fff; }
+.dot.half { background: #2a3a32; color: #5B8A72; border: 2px solid #5B8A72; }
+.dot.empty { background: #1a1a1a; color: #555; border: 2px solid #333; }
+
+.legend { display: flex; gap: 20px; justify-content: center; margin-top: 16px; }
+.legend-item { font-size: 15px; color: #888; display: flex; align-items: center; gap: 6px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+/* Cards */
+.card { background: #1a1a1a; border-radius: 20px; padding: 20px 24px; margin-bottom: 16px; border-left: 5px solid; }
+.card.clay { border-color: #6366f1; }
+.card.skinny { border-color: #f59e0b; }
+.card.fireflies { border-color: #10b981; }
+.card.gong { border-color: #ef4444; }
+.card.secretair { border-color: #5B8A72; background: #1a2a22; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.card-name { font-size: 20px; font-weight: 800; color: #fff; }
+.card-country { font-size: 16px; color: #888; background: #2a2a2a; padding: 4px 12px; border-radius: 10px; }
+.card-pos { font-size: 15px; color: #aaa; margin-bottom: 14px; line-height: 1.5; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 15px; padding: 5px 12px; border-radius: 8px; font-weight: 700; }
+.tag.pro { background: #064e3b; color: #6ee7b7; }
+.tag.con { background: #451a03; color: #fbbf24; }
+.tag.miss { background: #450a0a; color: #fca5a5; }
+
+.verdict { background: #5B8A72; border-radius: 20px; padding: 24px; text-align: center; margin-top: 24px; }
+.verdict h2 { font-size: 22px; color: #fff; margin-bottom: 10px; }
+.verdict p { font-size: 16px; color: #d1fae5; line-height: 1.6; }
+.footer { text-align: center; margin-top: 24px; font-size: 15px; color: #555; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="emoji">🦊📊</div>
+  <h1>AI Sales Assistants 2026</h1>
+  <div class="sub">Benchmark Secretair vs concurrents</div>
+</div>
+
+<div class="matrix-box">
+  <div class="section-title">⚡ Matrice comparative</div>
+  <div class="matrix-header">
+    <span style="color:#6366f1">Clay</span>
+    <span style="color:#f59e0b">Skinny</span>
+    <span style="color:#10b981">Fire</span>
+    <span style="color:#ef4444">Gong</span>
+    <span style="color:#5B8A72">Léa</span>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">🤙 Call IA</div>
+    <div class="matrix-dots">
+      <div class="dot empty">✗</div>
+      <div class="dot half">~</div>
+      <div class="dot empty">✗</div>
+      <div class="dot empty">✗</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">📊 Data B2B</div>
+    <div class="matrix-dots">
+      <div class="dot full">✓</div>
+      <div class="dot half">~</div>
+      <div class="dot empty">✗</div>
+      <div class="dot half">~</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">🎯 Qualif auto</div>
+    <div class="matrix-dots">
+      <div class="dot half">~</div>
+      <div class="dot full">✓</div>
+      <div class="dot empty">✗</div>
+      <div class="dot empty">✗</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">👤 Solo-friendly</div>
+    <div class="matrix-dots">
+      <div class="dot half">~</div>
+      <div class="dot empty">✗</div>
+      <div class="dot half">~</div>
+      <div class="dot empty">✗</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">💰 Prix PME</div>
+    <div class="matrix-dots">
+      <div class="dot half">~</div>
+      <div class="dot empty">✗</div>
+      <div class="dot full">✓</div>
+      <div class="dot empty">✗</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="matrix-row">
+    <div class="matrix-label">🇫🇷 France</div>
+    <div class="matrix-dots">
+      <div class="dot empty">✗</div>
+      <div class="dot empty">✗</div>
+      <div class="dot empty">✗</div>
+      <div class="dot half">~</div>
+      <div class="dot full">✓</div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#5B8A72"></div> Oui</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2a3a32; border:2px solid #5B8A72"></div> Partiel</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a1a1a; border:2px solid #333"></div> Non</div>
+  </div>
+</div>
+
+<div class="card clay">
+  <div class="card-header"><span class="card-name">Clay AI</span><span class="card-country">🇺🇸 US</span></div>
+  <div class="card-pos">Enrichissement & automatisation data prospects. API massive, intégration CRM.</div>
+  <div class="tags">
+    <span class="tag pro">✓ Data king</span>
+    <span class="tag pro">✓ Volume</span>
+    <span class="tag miss">✗ Zéro voix</span>
+    <span class="tag con">⚠ Complexe</span>
+  </div>
+</div>
+
+<div class="card skinny">
+  <div class="card-header"><span class="card-name">TheSkinnyAI</span><span class="card-country">🇬🇧 UK</span></div>
+  <div class="card-pos">Chat/call bot B2B, scoring auto, engagement rapide.</div>
+  <div class="tags">
+    <span class="tag pro">✓ Réactivité</span>
+    <span class="tag pro">✓ Scoring</span>
+    <span class="tag miss">✗ >500€/mois</span>
+    <span class="tag con">⚠ Pas solo</span>
+  </div>
+</div>
+
+<div class="card fireflies">
+  <div class="card-header"><span class="card-name">Fireflies / Tavus</span><span class="card-country">🇺🇸 US</span></div>
+  <div class="card-pos">Intelligence post-call : notes, CRM sync, vidéo IA personnalisée.</div>
+  <div class="tags">
+    <span class="tag pro">✓ Post-call</span>
+    <span class="tag pro">✓ Insights</span>
+    <span class="tag miss">✗ Pas caller</span>
+    <span class="tag con">⚠ Complémentaire</span>
+  </div>
+</div>
+
+<div class="card gong">
+  <div class="card-header"><span class="card-name">Gong / Modjo / Claap</span><span class="card-country">🇺🇸🇫🇷</span></div>
+  <div class="card-pos">Conversation intelligence, analytics call pour managers grandes équipes.</div>
+  <div class="tags">
+    <span class="tag pro">✓ Analytics</span>
+    <span class="tag pro">✓ CRM deep</span>
+    <span class="tag miss">✗ Pas prospection</span>
+    <span class="tag miss">✗ Pas solo</span>
+  </div>
+</div>
+
+<div class="card secretair">
+  <div class="card-header"><span class="card-name">🦊 Secretair (Léa)</span><span class="card-country">🇫🇷 FR</span></div>
+  <div class="card-pos">Agent vocal IA de prospection : appelle, qualifie, prend RDV. Solo-founder friendly, tout-en-un.</div>
+  <div class="tags">
+    <span class="tag pro">✓ Call A→Z</span>
+    <span class="tag pro">✓ Qualif auto</span>
+    <span class="tag pro">✓ Prix PME</span>
+    <span class="tag pro">✓ Solo-ready</span>
+    <span class="tag pro">✓ 🇫🇷 natif</span>
+  </div>
+</div>
+
+<div class="verdict">
+  <h2>🎯 Le trou dans le marché</h2>
+  <p>Personne ne fait le call IA B2B + qualif + RDV en solo-friendly.<br>Léa est seule sur ce créneau. Move fast.</p>
+</div>
+
+<div class="footer">Sacha 🦊 — Morning Wow, 13 fév 2026</div>
+</body>
+</html>
