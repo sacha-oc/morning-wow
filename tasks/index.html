@@ -394,6 +394,7 @@
           projet: p.Projet?.select?.name || '',
           notes: p['Notes JS']?.rich_text?.[0]?.plain_text || '',
           livrable: p.Livrable?.rich_text?.[0]?.plain_text || p.Livrable?.url || '',
+          lien: p.Lien?.url || '',
         };
       }).sort((a,b) => a.ordre - b.ordre);
     }
@@ -458,9 +459,10 @@
               ${t.effort?`<span class="badge b-effort">${esc(t.effort)}</span>`:''}
               ${t.type?`<span class="badge b-type">${esc(t.type)}</span>`:''}
             </div>
-            ${t.notes||t.livrable?`<div class="task-detail">
+            ${t.notes||t.livrable||t.lien?`<div class="task-detail">
               ${t.notes?`<div>${esc(t.notes)}</div>`:''}
-              ${t.livrable?`<div class="livrable">📦 ${esc(t.livrable)}</div>`:''}
+              ${t.livrable?`<div class="livrable">${isUrl(t.livrable)?`<a href="${esc(t.livrable)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--mint);text-decoration:none">📦 Livrable ↗</a>`:`📦 ${esc(t.livrable)}`}</div>`:''}
+              ${t.lien?`<div class="livrable"><a href="${esc(t.lien)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue);text-decoration:none">🔗 Lien ↗</a></div>`:''}
             </div>`:''}
           </div>`;
         });
@@ -470,6 +472,7 @@
 
     function setFilter(f) { filter = f; render(); }
     function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function isUrl(s) { return /^https?:\/\//i.test(s||''); }
 
     async function refresh() {
       const btn = document.getElementById('refreshBtn');
