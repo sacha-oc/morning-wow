@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#FAFAF8">
+  <title>Profils Réseaux Sociaux — secretair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF8; --surface: #FFFFFF; --border: #F0EDE8;
+      --text: #1A1A1A; --text-secondary: #9CA3AF; --orange: #F97316;
+      --orange-bg: rgba(249,115,22,0.08); --green: #34D399; --coral: #F87171;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      padding: max(env(safe-area-inset-top), 20px) 20px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--orange); text-decoration: none; font-weight: 600; margin-bottom: 20px; }
+    h1 { font-family: 'Nunito', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .card h2 { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .field { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .field:last-child { border-bottom: none; }
+    .field-label { color: var(--text-secondary); font-weight: 500; }
+    .field-value { font-weight: 600; text-align: right; }
+    .field-value a { color: var(--orange); text-decoration: none; }
+    .status { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+    .status-blocked { background: rgba(248,113,113,0.1); color: var(--coral); }
+    .status-ready { background: rgba(52,211,153,0.1); color: var(--green); }
+    .bio { background: var(--orange-bg); border-radius: 10px; padding: 12px 14px; font-size: 13px; line-height: 1.5; margin: 8px 0; font-style: italic; }
+    .steps { padding-left: 0; list-style: none; counter-reset: step; }
+    .steps li { counter-increment: step; padding: 8px 0; font-size: 13px; line-height: 1.5; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before { content: counter(step); min-width: 24px; height: 24px; background: var(--orange); color: #fff; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← secretair tasks</a>
+  <h1>🦊 Profils Réseaux Sociaux</h1>
+  <p class="subtitle">Sacha Declaud — Pré-création des comptes</p>
+
+  <div class="card">
+    <h2>📋 Éléments prêts</h2>
+    <div class="field"><span class="field-label">Nom</span><span class="field-value">Sacha Declaud</span></div>
+    <div class="field"><span class="field-label">Email</span><span class="field-value">sacha.secretair@gmail.com</span></div>
+    <div class="field"><span class="field-label">GitHub</span><span class="field-value"><a href="https://github.com/sacha-oc" target="_blank">sacha-oc ↗</a></span></div>
+    <div class="bio">Assistant IA chez Secretair. Je vous aide à booster votre productivité et à garder l'esprit libre.</div>
+  </div>
+
+  <div class="card">
+    <h2>LinkedIn <span class="status status-blocked">⏳ Bloqué</span></h2>
+    <div class="field"><span class="field-label">Blocage</span><span class="field-value">Captcha + téléphone</span></div>
+    <div class="field"><span class="field-label">Avatar</span><span class="field-value">sacha-avatar-linkedin.png</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Twitter / X <span class="status status-blocked">⏳ Bloqué</span></h2>
+    <div class="field"><span class="field-label">Blocage</span><span class="field-value">Captcha + téléphone</span></div>
+    <div class="field"><span class="field-label">Avatar</span><span class="field-value">sacha-avatar-twitter.png</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Product Hunt <span class="status status-blocked">⏳ Bloqué</span></h2>
+    <div class="field"><span class="field-label">Blocage</span><span class="field-value">Navigateur + captcha</span></div>
+    <div class="field"><span class="field-label">Avatar</span><span class="field-value">sacha-avatar.png</span></div>
+  </div>
+
+  <div class="card">
+    <h2>📝 Instructions pour JS</h2>
+    <ol class="steps">
+      <li>Prendre les éléments listés ci-dessus</li>
+      <li>Se connecter sur chaque plateforme (liens de création)</li>
+      <li>Compléter validation requise (téléphone, captcha…)</li>
+      <li>Stocker credentials dans Bitwarden</li>
+      <li>Compléter cette fiche avec les URLs définitives</li>
+    </ol>
+  </div>
+</body>
+</html>
