@@ -1,4 +1,4 @@
-const CACHE_NAME = 'task-dashboard-v4';
+const CACHE_NAME = 'task-dashboard-v5';
 const ASSETS = ['./index.html', './manifest.json', './data.js'];
 
 self.addEventListener('install', e => {

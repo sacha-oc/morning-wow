@@ -600,7 +600,7 @@
           html += `<div class="task" onclick="this.classList.toggle('open')" style="animation-delay:${i*0.05}s">
             <div class="task-top">
               <div class="task-title">${esc(t.name)}</div>
-              ${t.ordre<999?`<div class="task-rank">${t.ordre}</div>`:''}
+              
             </div>
             <div class="task-badges">
               <span class="badge b-${statusClass[t.statut]||'backlog'}">${esc(t.statut)}</span>
