@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#0f0f1a">
-  <title>Sacha Tasks</title>
+  <title>Sacha Dashboard</title>
   <link rel="manifest" href="manifest.json">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -25,6 +25,7 @@
       --coral: #E57373;
       --amber: #F5A623;
       --blue: #5C9CE6;
+      --purple: #B39DDB;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -37,10 +38,10 @@
       overflow-x: hidden;
     }
 
-    /* ═══ Gradient Mesh Header ═══ */
+    /* ═══ Header ═══ */
     .header {
       position: relative;
-      padding: max(env(safe-area-inset-top), 20px) 20px 24px;
+      padding: max(env(safe-area-inset-top), 20px) 20px 16px;
       overflow: hidden;
     }
     .header::before {
@@ -52,72 +53,131 @@
         radial-gradient(ellipse 50% 50% at 85% 60%, rgba(152,216,200,0.08), transparent 50%),
         radial-gradient(ellipse 40% 40% at 50% 0%, rgba(229,115,115,0.06), transparent 50%);
       animation: meshShift 12s ease-in-out infinite alternate;
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
     @keyframes meshShift {
       0% { transform: translate(0, 0) scale(1); }
       100% { transform: translate(2%, -3%) scale(1.05); }
     }
     .header > * { position: relative; z-index: 1; }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
     .logo-icon {
       width: 38px; height: 38px;
       background: linear-gradient(135deg, var(--accent), var(--mint));
       border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 18px;
       box-shadow: 0 4px 16px var(--accent-glow);
     }
-    .logo h1 {
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.4px;
-    }
-
-    /* Refresh button – pull-to-refresh feel */
+    .logo h1 { font-size: 19px; font-weight: 700; letter-spacing: -0.4px; }
     .refresh-icon {
       width: 42px; height: 42px;
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: 13px;
-      color: var(--text);
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), background 0.2s, box-shadow 0.3s;
+      color: var(--text); font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.25s, background 0.2s;
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
-    .refresh-icon:hover { background: var(--surface-hover); box-shadow: 0 0 20px var(--accent-glow); }
-    .refresh-icon:active { transform: scale(0.82) rotate(-30deg); background: var(--surface-hover); }
-    .refresh-icon.spinning { animation: spinPull 0.7s cubic-bezier(.4,0,.2,1) infinite; }
-    @keyframes spinPull {
-      0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(200deg) scale(0.92); }
-      100% { transform: rotate(360deg) scale(1); }
+    .refresh-icon:active { transform: scale(0.82) rotate(-30deg); }
+    .refresh-icon.spinning { animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ═══ System Bar ═══ */
+    .system-bar {
+      display: flex; gap: 8px; margin-bottom: 12px;
+      font-size: 11px; font-weight: 600;
+    }
+    .sys-chip {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 10px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+    }
+    .sys-chip .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+    }
+    .dot-green { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+    .dot-amber { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+    .dot-red { background: var(--coral); box-shadow: 0 0 6px var(--coral); }
+
+    /* ═══ Widget Cards ═══ */
+    .widgets { display: flex; flex-direction: column; gap: 8px; padding: 0 20px 8px; }
+    .widget {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .widget:active { transform: scale(0.98); }
+    .widget.open .widget-body { display: block; }
+    .widget-header {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .widget-title {
+      font-size: 13px; font-weight: 700; letter-spacing: -0.2px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .widget-subtitle { font-size: 11px; color: var(--text-secondary); }
+    .widget-body {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      animation: reveal 0.3s ease-out;
+    }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ═══ Stats Cards ═══ */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+    /* Health widget */
+    .health-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
     }
+    .health-metric {
+      text-align: center;
+      padding: 10px 4px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+    }
+    .health-value {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.5px;
+    }
+    .health-label {
+      font-size: 9px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--text-secondary); margin-top: 2px;
+    }
+    .h-mint { color: var(--mint); }
+    .h-blue { color: var(--blue); }
+    .h-amber { color: var(--amber); }
+    .h-coral { color: var(--coral); }
+    .h-purple { color: var(--purple); }
+    .h-accent { color: var(--accent); }
+
+    /* Cron widget */
+    .cron-list { display: flex; flex-direction: column; gap: 6px; }
+    .cron-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    .cron-name { font-weight: 600; flex: 1; }
+    .cron-status { font-size: 11px; font-weight: 600; margin-left: 8px; }
+    .cron-time { font-size: 10px; color: var(--text-secondary); margin-left: 8px; white-space: nowrap; }
+
+    /* ═══ Stats Cards ═══ */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
     .stat-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
@@ -125,13 +185,9 @@
       padding: 14px 8px 12px;
       text-align: center;
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      transition: transform 0.2s, box-shadow 0.3s;
     }
-    .stat-card:active { transform: scale(0.96); }
     .stat-value {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -1px;
+      font-size: 26px; font-weight: 800; letter-spacing: -1px;
       background: linear-gradient(135deg, var(--text), var(--text-secondary));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
@@ -139,37 +195,41 @@
     .stat-card:nth-child(3) .stat-value { background: linear-gradient(135deg, var(--amber), #FFD93D); -webkit-background-clip: text; }
     .stat-card:nth-child(4) .stat-value { background: linear-gradient(135deg, var(--coral), #FF8A80); -webkit-background-clip: text; }
     .stat-label {
-      font-size: 9.5px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
+      font-size: 9.5px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--text-secondary); margin-top: 3px;
+    }
+
+    /* ═══ Tabs ═══ */
+    .tabs {
+      display: flex; gap: 0; padding: 8px 20px 4px;
+    }
+    .tab {
+      flex: 1; padding: 10px 0; text-align: center;
+      font-size: 12px; font-weight: 600;
       color: var(--text-secondary);
-      margin-top: 3px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tab.active {
+      color: var(--mint);
+      border-bottom-color: var(--mint);
     }
 
     /* ═══ Filter Pills ═══ */
     .filters {
-      display: flex;
-      gap: 7px;
-      padding: 14px 20px 8px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      display: flex; gap: 7px; padding: 10px 20px 8px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      scroll-snap-type: x proximity;
     }
     .filters::-webkit-scrollbar { display: none; }
     .filter-pill {
-      padding: 8px 18px;
-      border-radius: 100px;
+      padding: 8px 18px; border-radius: 100px;
       border: 1px solid var(--border);
       background: transparent;
       color: var(--text-secondary);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      scroll-snap-align: start;
+      font-family: inherit; font-size: 13px; font-weight: 500;
+      cursor: pointer; white-space: nowrap;
       transition: all 0.3s cubic-bezier(.34,1.56,.64,1);
       -webkit-tap-highlight-color: transparent;
     }
@@ -178,63 +238,35 @@
       background: var(--accent);
       border-color: transparent;
       color: #fff;
-      box-shadow: 0 4px 20px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.12);
-      transform: scale(1);
+      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
-    /* ═══ Progress Bar ═══ */
-    .progress-wrap { padding: 4px 20px 12px; }
-    .progress-bar {
-      height: 5px;
-      background: var(--surface);
-      border-radius: 5px;
-      overflow: hidden;
-    }
+    /* ═══ Progress ═══ */
+    .progress-wrap { padding: 4px 20px 8px; }
+    .progress-bar { height: 5px; background: var(--surface); border-radius: 5px; overflow: hidden; }
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--accent), var(--mint));
       border-radius: 5px;
       transition: width 0.8s cubic-bezier(.16,1,.3,1);
       box-shadow: 0 0 12px var(--accent-glow);
-      position: relative;
     }
-    .progress-fill::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      animation: shimmer 2s ease-in-out infinite;
-    }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .progress-text {
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-top: 6px;
-      text-align: right;
-    }
+    .progress-text { font-size: 11px; color: var(--text-secondary); margin-top: 6px; text-align: right; }
 
     /* ═══ Task Cards ═══ */
     .tasks-container { padding: 0 20px 120px; }
     .section-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--text-secondary);
-      padding: 18px 0 8px;
+      font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: var(--text-secondary); padding: 18px 0 8px;
     }
     .task {
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 8px;
+      padding: 16px; margin-bottom: 8px;
       cursor: pointer;
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), background 0.2s, box-shadow 0.3s;
+      transition: transform 0.22s, background 0.2s, box-shadow 0.3s;
       animation: cardIn 0.4s cubic-bezier(.16,1,.3,1) both;
       -webkit-tap-highlight-color: transparent;
     }
@@ -242,49 +274,22 @@
       from { opacity: 0; transform: translateY(12px) scale(0.97); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
-    .task:active { transform: scale(0.975); background: var(--surface-hover); }
-    .task.open {
-      background: var(--surface-hover);
-      border-color: rgba(91,138,114,0.2);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    }
-    .task-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .task-title {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.45;
-      flex: 1;
-    }
+    .task:active { transform: scale(0.975); }
+    .task.open { background: var(--surface-hover); border-color: rgba(91,138,114,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .task-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .task-title { font-size: 14px; font-weight: 600; line-height: 1.45; flex: 1; }
     .task-rank {
       min-width: 28px; height: 28px;
       background: linear-gradient(135deg, var(--accent), #4a7a62);
       border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800;
       box-shadow: 0 2px 8px var(--accent-glow);
     }
-    .task-badges {
-      display: flex;
-      gap: 6px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+    .task-badges { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
     .badge {
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      transition: opacity 0.2s;
+      padding: 3px 10px; border-radius: 6px;
+      font-size: 11px; font-weight: 600;
     }
     .b-done { background: rgba(91,138,114,0.15); color: var(--mint); }
     .b-encours { background: rgba(245,166,35,0.15); color: var(--amber); }
@@ -295,65 +300,30 @@
     .b-type { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
     .b-effort { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
     .b-haute { background: rgba(229,115,115,0.1); color: var(--coral); }
-
     .task-detail {
-      margin-top: 12px;
-      padding-top: 12px;
+      margin-top: 12px; padding-top: 12px;
       border-top: 1px solid var(--border);
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: 13px; line-height: 1.6;
       color: var(--text-secondary);
-      display: none;
-      animation: detailReveal 0.3s ease-out;
-    }
-    @keyframes detailReveal {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
+      display: none; animation: reveal 0.3s ease-out;
     }
     .task.open .task-detail { display: block; }
     .task-detail .livrable {
-      margin-top: 8px;
-      padding: 10px 14px;
+      margin-top: 8px; padding: 10px 14px;
       background: rgba(91,138,114,0.08);
       border: 1px solid rgba(91,138,114,0.12);
       border-radius: 10px;
-      color: var(--mint);
-      font-size: 12px;
+      color: var(--mint); font-size: 12px;
     }
 
-    /* ═══ Empty State ═══ */
-    .empty {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-secondary);
-    }
-    .empty-icon { font-size: 48px; margin-bottom: 12px; animation: float 3s ease-in-out infinite; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+    .empty { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
+    .empty-icon { font-size: 48px; margin-bottom: 12px; }
     .empty-text { font-size: 15px; }
+    .updated { text-align: center; font-size: 11px; color: var(--text-secondary); padding: 4px 20px; opacity: 0.5; }
 
-    /* ═══ Loading ═══ */
-    .loading { text-align: center; padding: 80px 20px; }
-    .loader {
-      width: 36px; height: 36px;
-      border: 3px solid var(--surface);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spinPull 0.7s linear infinite;
-      margin: 0 auto 16px;
-    }
-    .load-text { color: var(--text-secondary); font-size: 14px; }
-
-    .updated {
-      text-align: center;
-      font-size: 11px;
-      color: var(--text-secondary);
-      padding: 4px 20px;
-      opacity: 0.5;
-      transition: opacity 0.4s;
-    }
+    /* Sections visibility */
+    .section { display: none; }
+    .section.active { display: block; }
   </style>
 </head>
 <body>
@@ -361,25 +331,197 @@
     <div class="header-top">
       <div class="logo">
         <div class="logo-icon">🦊</div>
-        <h1>Tasks</h1>
+        <h1>Sacha</h1>
       </div>
       <button class="refresh-icon" id="refreshBtn" onclick="refresh()">↻</button>
     </div>
+    <div id="systemBar" class="system-bar"></div>
     <div class="stats" id="stats"></div>
   </div>
 
-  <div class="progress-wrap" id="progressWrap"></div>
-  <div class="filters" id="filters"></div>
-  <div class="updated" id="updated"></div>
-  <div class="tasks-container" id="tasks">
-    <div class="loading"><div class="loader"></div><div class="load-text">Chargement...</div></div>
+  <div class="tabs" id="tabBar">
+    <div class="tab active" onclick="switchTab('overview')">Vue d'ensemble</div>
+    <div class="tab" onclick="switchTab('tasks')">Tâches</div>
+    <div class="tab" onclick="switchTab('crons')">Crons</div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div id="sec-overview" class="section active">
+    <div class="widgets" id="widgets"></div>
+  </div>
+
+  <!-- TASKS -->
+  <div id="sec-tasks" class="section">
+    <div class="progress-wrap" id="progressWrap"></div>
+    <div class="filters" id="filters"></div>
+    <div class="updated" id="updated"></div>
+    <div class="tasks-container" id="tasks"></div>
+  </div>
+
+  <!-- CRONS -->
+  <div id="sec-crons" class="section">
+    <div class="widgets" id="cronWidgets" style="padding-top:12px"></div>
   </div>
 
   <script src="data.js"></script>
   <script>
-    let tasks = [], filter = 'active';
+    let tasks = [], filter = 'active', currentTab = 'overview';
+    const D = window.__DASHBOARD_DATA || {};
     const statusClass = { 'Done':'done', 'En cours':'encours', 'Backlog':'backlog', 'Attente JS':'attente', 'A relire':'relire', 'À relire':'relire', 'To Do':'todo', 'À faire':'todo' };
 
+    // ── Tab switching ──
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab').forEach((t,i) => {
+        t.classList.toggle('active', ['overview','tasks','crons'][i] === tab);
+      });
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById('sec-' + tab).classList.add('active');
+    }
+
+    // ── System bar ──
+    function renderSystem() {
+      const sys = D.system || {};
+      const ram = sys.ramPct || 0;
+      const dotClass = ram > 60 ? 'dot-green' : ram > 30 ? 'dot-amber' : 'dot-red';
+      document.getElementById('systemBar').innerHTML = `
+        <div class="sys-chip"><span class="dot ${dotClass}"></span>RAM ${ram}%</div>
+        <div class="sys-chip">⬆ ${esc(sys.uptime || '?')}</div>
+        ${D.generated ? `<div class="sys-chip">📡 ${esc(D.generated)}</div>` : ''}
+      `;
+    }
+
+    // ── Health widget ──
+    function renderHealth() {
+      const h = D.health;
+      if (!h) return '<div class="widget"><div class="widget-header"><div class="widget-title">🏥 Santé</div><div class="widget-subtitle">Pas de données</div></div></div>';
+
+      const sleep = h.asleep;
+      const act = h.activity;
+      const spo2 = h.spo2;
+      const ready = h.ready;
+
+      let summary = [];
+      if (sleep) summary.push(`${sleep.sleepHours}h sommeil`);
+      if (act) summary.push(`${act.steps.toLocaleString()} pas`);
+      if (spo2) summary.push(`SpO2 ${spo2.avg}%`);
+
+      let body = '<div class="health-grid">';
+      if (sleep) {
+        body += `
+          <div class="health-metric"><div class="health-value h-blue">${sleep.sleepHours}h</div><div class="health-label">Sommeil</div></div>
+          <div class="health-metric"><div class="health-value h-mint">${sleep.rechargePct}%</div><div class="health-label">Recharge</div></div>
+          <div class="health-metric"><div class="health-value ${sleep.debtPct > 20 ? 'h-coral' : 'h-accent'}">${sleep.debtPct}%</div><div class="health-label">Dette</div></div>
+        `;
+      }
+      if (act) {
+        body += `
+          <div class="health-metric"><div class="health-value h-amber">${act.steps.toLocaleString()}</div><div class="health-label">Pas</div></div>
+          <div class="health-metric"><div class="health-value h-coral">${Math.round(act.calories)}</div><div class="health-label">Calories</div></div>
+          <div class="health-metric"><div class="health-value h-purple">${Math.round(act.exerciseMin)}m</div><div class="health-label">Exercise</div></div>
+        `;
+      }
+      if (spo2) {
+        body += `
+          <div class="health-metric"><div class="health-value h-blue">${spo2.avg}%</div><div class="health-label">SpO2 moy</div></div>
+          <div class="health-metric"><div class="health-value h-coral">${spo2.min}%</div><div class="health-label">SpO2 min</div></div>
+          <div class="health-metric"><div class="health-value h-mint">${spo2.max}%</div><div class="health-label">SpO2 max</div></div>
+        `;
+      }
+      if (ready) {
+        body += `
+          <div class="health-metric"><div class="health-value h-purple">${ready.hrv}</div><div class="health-label">HRV</div></div>
+          <div class="health-metric"><div class="health-value h-coral">${ready.bpm}</div><div class="health-label">BPM repos</div></div>
+          <div class="health-metric"><div class="health-value h-amber">${ready.stars}★</div><div class="health-label">Ready</div></div>
+        `;
+      }
+      body += '</div>';
+
+      return `<div class="widget" onclick="this.classList.toggle('open')">
+        <div class="widget-header">
+          <div class="widget-title">🏥 Santé</div>
+          <div class="widget-subtitle">${summary.join(' · ') || 'Données partielles'}</div>
+        </div>
+        <div class="widget-body">${body}</div>
+      </div>`;
+    }
+
+    // ── Task summary widget for overview ──
+    function renderTaskWidget() {
+      const total = tasks.length;
+      const done = tasks.filter(t => t.statut === 'Done').length;
+      const encours = tasks.filter(t => t.statut === 'En cours').length;
+      const attente = tasks.filter(t => t.statut === 'Attente JS').length;
+      const pct = total ? Math.round(done / total * 100) : 0;
+      const active = tasks.filter(t => t.statut !== 'Done');
+      const next = active[0];
+
+      return `<div class="widget" onclick="switchTab('tasks')">
+        <div class="widget-header">
+          <div class="widget-title">📋 Tâches</div>
+          <div class="widget-subtitle">${done}/${total} done · ${encours} en cours · ${attente} attente</div>
+        </div>
+      </div>`;
+    }
+
+    // ── Crons widget for overview ──
+    function renderCronSummary() {
+      const crons = D.crons || [];
+      if (!crons.length) return `<div class="widget" onclick="switchTab('crons')">
+        <div class="widget-header">
+          <div class="widget-title">⚙️ Crons</div>
+          <div class="widget-subtitle">Pas de données</div>
+        </div>
+      </div>`;
+
+      const ok = crons.filter(c => c.lastStatus === 'ok').length;
+      const err = crons.filter(c => c.lastStatus === 'error').length;
+      return `<div class="widget" onclick="switchTab('crons')">
+        <div class="widget-header">
+          <div class="widget-title">⚙️ Crons</div>
+          <div class="widget-subtitle">${ok} ✅ ${err ? `· ${err} ❌` : ''} · ${crons.length} total</div>
+        </div>
+      </div>`;
+    }
+
+    // ── Full crons view ──
+    function renderCrons() {
+      const crons = D.crons || [];
+      if (!crons.length) {
+        document.getElementById('cronWidgets').innerHTML = '<div class="empty"><div class="empty-icon">⚙️</div><div class="empty-text">Données crons non disponibles</div></div>';
+        return;
+      }
+      let html = '<div style="padding:0 0 120px"><div class="cron-list">';
+      crons.sort((a,b) => (a.nextRun||Infinity) - (b.nextRun||Infinity));
+      crons.forEach(c => {
+        const icon = c.lastStatus === 'ok' ? '✅' : c.lastStatus === 'error' ? '❌' : '⏸';
+        const nextStr = c.nextRun ? new Date(c.nextRun).toLocaleString('fr-FR', {hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}) : '—';
+        const lastStr = c.lastRun ? timeAgo(c.lastRun) : 'jamais';
+        html += `<div class="cron-item">
+          <span class="cron-name">${icon} ${esc(c.name)}</span>
+          <span class="cron-time">⏱ ${lastStr}</span>
+        </div>`;
+      });
+      html += '</div></div>';
+      document.getElementById('cronWidgets').innerHTML = html;
+    }
+
+    function timeAgo(ts) {
+      const diff = Date.now() - ts;
+      const min = Math.floor(diff / 60000);
+      if (min < 60) return `${min}m`;
+      const h = Math.floor(min / 60);
+      if (h < 24) return `${h}h`;
+      return `${Math.floor(h/24)}j`;
+    }
+
+    // ── Overview ──
+    function renderOverview() {
+      document.getElementById('widgets').innerHTML =
+        renderHealth() + renderTaskWidget() + renderCronSummary();
+    }
+
+    // ── Tasks ──
     function parse(raw) {
       return (raw||[]).map(r => {
         const p = r.properties||{};
@@ -399,7 +541,7 @@
       }).sort((a,b) => a.ordre - b.ordre);
     }
 
-    function render() {
+    function renderTasks() {
       const total = tasks.length;
       const done = tasks.filter(t=>t.statut==='Done').length;
       const encours = tasks.filter(t=>t.statut==='En cours').length;
@@ -415,7 +557,7 @@
 
       document.getElementById('progressWrap').innerHTML = `
         <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <div class="progress-text">${pct}% complété — ${done}/${total} tâches</div>
+        <div class="progress-text">${pct}% complété — ${done}/${total}</div>
       `;
 
       const filters = ['active','all','Done','En cours','Attente JS','Backlog','A relire'];
@@ -433,13 +575,8 @@
         return;
       }
 
-      // Group by status
       const groups = {};
-      filtered.forEach(t => {
-        const g = t.statut;
-        if (!groups[g]) groups[g] = [];
-        groups[g].push(t);
-      });
+      filtered.forEach(t => { const g = t.statut; if (!groups[g]) groups[g] = []; groups[g].push(t); });
 
       const order = ['En cours','Backlog','A relire','À relire','To Do','À faire','Attente JS','Done'];
       let html = '';
@@ -470,22 +607,28 @@
       document.getElementById('tasks').innerHTML = html;
     }
 
-    function setFilter(f) { filter = f; render(); }
+    function setFilter(f) { filter = f; renderTasks(); }
     function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function isUrl(s) { return /^https?:\/\//i.test(s||''); }
+
+    function renderAll() {
+      renderSystem();
+      renderOverview();
+      renderTasks();
+      renderCrons();
+    }
 
     async function refresh() {
       const btn = document.getElementById('refreshBtn');
       btn.classList.add('spinning');
       try {
-        // Try proxy (won't work without setup, falls back to cached)
         const res = await fetch('https://notion-proxy.secretair.workers.dev/query', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ database_id:'30497be2-94c5-81d3-ae2c-000be5c0a0f0', sorts:[{property:'Ordre',direction:'ascending'}] })
         });
         if (res.ok) { tasks = parse((await res.json()).results); localStorage.setItem('tasks', JSON.stringify(tasks)); }
       } catch {}
-      render();
+      renderAll();
       document.getElementById('updated').textContent = `Mis à jour ${new Date().toLocaleTimeString('fr-FR')}`;
       setTimeout(() => btn.classList.remove('spinning'), 500);
     }
@@ -494,7 +637,7 @@
     const cached = localStorage.getItem('tasks');
     if (cached) tasks = JSON.parse(cached);
     if (window.__CACHED_TASKS) { tasks = parse(window.__CACHED_TASKS); localStorage.setItem('tasks', JSON.stringify(tasks)); }
-    render();
+    renderAll();
     document.getElementById('updated').textContent = `Données du ${new Date().toLocaleDateString('fr-FR')}`;
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     setInterval(refresh, 5*60*1000);
