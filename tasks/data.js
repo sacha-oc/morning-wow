@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 21:00
+// Auto-generated 2026-02-15 21:31
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "5 days, 14:59",
+    "ramPct": 50,
+    "uptime": "5 days, 15:30",
     "load": "",
-    "updated": "22:00"
+    "updated": "22:31"
   },
   "crons": [
     {
@@ -34,20 +34,20 @@ window.__DASHBOARD_DATA = {
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": 1771191060000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771187460013,
-      "nextRun": 1771191060000
+      "nextRun": null
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771106400017,
+      "nextRun": 1771192800000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771189200016,
       "nextRun": 1771192800000
     },
     {
@@ -95,12 +95,14 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771209000000
     },
     {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771210800000
     },
@@ -128,6 +130,7 @@ window.__DASHBOARD_DATA = {
     {
       "name": "Weekly Infra Monitor",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771228800000
     },
@@ -177,9 +180,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1770849600012,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 21:00"
+  "generated": "2026-02-15 21:31"
 };
