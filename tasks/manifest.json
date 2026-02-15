@@ -1,12 +1,12 @@
 {
-  "name": "secretair tasks",
-  "short_name": "secretair",
-  "description": "Task tracker — secretair",
+  "name": "Tasks",
+  "short_name": "Tasks",
+  "description": "Task tracker",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FAFAF8",
-  "theme_color": "#5B8A72",
+  "theme_color": "#1A1A1A",
   "icons": [
     {
       "src": "icon-192.png",
