@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 23:01
+// Auto-generated 2026-02-15 23:31
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "5 days, 17 hrs",
+    "uptime": "5 days, 17:30",
     "load": "",
-    "updated": "00:01"
+    "updated": "00:31"
   },
   "crons": [
     {
@@ -34,14 +34,14 @@ window.__DASHBOARD_DATA = {
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": 1771198260000
+      "nextRun": null
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771194660018,
-      "nextRun": 1771198260000
+      "lastRun": 1771196500315,
+      "nextRun": 1771200000000
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -68,7 +68,7 @@ window.__DASHBOARD_DATA = {
       "name": "💬 Notion Comments Check",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771185600018,
+      "lastRun": 1771196437531,
       "nextRun": 1771207200000
     },
     {
@@ -81,22 +81,22 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771209000000,
-      "lastStatus": null
+      "nextRun": 1771209000000
     },
     {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771210800000,
-      "lastStatus": null
+      "nextRun": 1771210800000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771174800017,
+      "lastRun": 1771196400052,
       "nextRun": 1771218000000
     },
     {
@@ -123,9 +123,9 @@ window.__DASHBOARD_DATA = {
     {
       "name": "Weekly Infra Monitor",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771228800000,
-      "lastStatus": null
+      "nextRun": 1771228800000
     },
     {
       "name": "🦊 Morning Wow",
@@ -179,10 +179,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 23:01"
+  "generated": "2026-02-15 23:31"
 };
