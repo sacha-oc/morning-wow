@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 22:01
+// Auto-generated 2026-02-15 22:31
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "5 days, 16 hrs",
+    "uptime": "5 days, 16:30",
     "load": "",
-    "updated": "23:01"
+    "updated": "23:31"
   },
   "crons": [
     {
@@ -34,14 +34,7 @@ window.__DASHBOARD_DATA = {
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": 1771194660000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771191060019,
-      "nextRun": 1771194660000
+      "nextRun": null
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -55,6 +48,13 @@ window.__DASHBOARD_DATA = {
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771185600018,
+      "nextRun": 1771196400000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771192856220,
       "nextRun": 1771196400000
     },
     {
@@ -166,7 +166,7 @@ window.__DASHBOARD_DATA = {
       "name": "🌙 Night Shift — Notion Tasks",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771106400017,
+      "lastRun": 1771192800020,
       "nextRun": 1771279200000
     },
     {
@@ -184,5 +184,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 22:01"
+  "generated": "2026-02-15 22:31"
 };
