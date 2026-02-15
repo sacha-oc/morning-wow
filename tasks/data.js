@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 20:01
+// Auto-generated 2026-02-15 20:31
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 51,
-    "uptime": "5 days, 14 hrs",
+    "uptime": "5 days, 14:30",
     "load": "",
-    "updated": "21:01"
+    "updated": "21:31"
   },
   "crons": [
     {
@@ -42,8 +42,8 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771183860020,
-      "nextRun": 1771187460000
+      "lastRun": 1771185675648,
+      "nextRun": 1771189200000
     },
     {
       "id": "9c3c088e-1f99-4db4-8654-54e2afe3d9ad",
@@ -62,11 +62,11 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771196400000
     },
     {
-      "id": "83ae3a32-068d-4fcf-9fc2-02dfbc9207f5",
+      "id": "83ae3a32-068d-4f7f-a98d-02dfbc9207f5",
       "name": "💬 Notion Comments Check",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771174855133,
+      "lastStatus": "ok",
+      "lastRun": 1771185600018,
       "nextRun": 1771196400000
     },
     {
@@ -201,10 +201,10 @@ window.__DASHBOARD_DATA = {
       "id": "6bcc9f67-2cbd-44a4-aabd-3a38dfee401e",
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
+      "lastStatus": "ok",
+      "lastRun": 1770849600012,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 20:01"
+  "generated": "2026-02-15 20:31"
 };
