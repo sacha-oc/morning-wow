@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 22:31
+// Auto-generated 2026-02-15 23:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "5 days, 16:30",
+    "uptime": "5 days, 17 hrs",
     "load": "",
-    "updated": "23:31"
+    "updated": "00:01"
   },
   "crons": [
     {
@@ -34,28 +34,14 @@ window.__DASHBOARD_DATA = {
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": null
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771174800017,
-      "nextRun": 1771196400000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771185600018,
-      "nextRun": 1771196400000
+      "nextRun": 1771198260000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771192856220,
-      "nextRun": 1771196400000
+      "lastRun": 1771194660018,
+      "nextRun": 1771198260000
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -79,6 +65,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771207200000
     },
     {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771185600018,
+      "nextRun": 1771207200000
+    },
+    {
       "name": "🧠 Daily LLM Config Optimizer",
       "enabled": true,
       "lastStatus": "ok",
@@ -88,16 +81,23 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771209000000
+      "nextRun": 1771209000000,
+      "lastStatus": null
     },
     {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771210800000
+      "nextRun": 1771210800000,
+      "lastStatus": null
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771174800017,
+      "nextRun": 1771218000000
     },
     {
       "name": "JO Hiver 2026 - Alertes France",
@@ -123,9 +123,9 @@ window.__DASHBOARD_DATA = {
     {
       "name": "Weekly Infra Monitor",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771228800000
+      "nextRun": 1771228800000,
+      "lastStatus": null
     },
     {
       "name": "🦊 Morning Wow",
@@ -179,10 +179,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
+      "lastStatus": "ok",
       "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 22:31"
+  "generated": "2026-02-15 23:01"
 };
