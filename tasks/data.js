@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 18:50
+// Auto-generated 2026-02-15 19:31
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,154 +23,152 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "5 days, 12:49",
+    "ramPct": 47,
+    "uptime": "5 days, 13:30",
     "load": "",
-    "updated": "19:50"
+    "updated": "20:31"
   },
   "crons": [
     {
       "name": "🔧 Cron Health Check",
+      "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": null,
-      "enabled": false
+      "nextRun": null
     },
     {
-      "name": "💬 Notion Comments",
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
       "lastStatus": "error",
       "lastRun": 1771174855133,
-      "nextRun": 1771185600000,
-      "enabled": true
+      "nextRun": 1771185600000
     },
     {
-      "name": "🌙 Night Shift",
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771182000019,
+      "nextRun": 1771185600000
+    },
+    {
+      "name": "🌙 Night Shift — Notion Tasks",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771106400017,
-      "nextRun": 1771192800000,
-      "enabled": true
+      "nextRun": 1771192800000
     },
     {
-      "name": "🔧 System Health",
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771174800017,
-      "nextRun": 1771196400000,
-      "enabled": true
+      "nextRun": 1771196400000
     },
     {
-      "name": "🔧 Cron Optimizer",
+      "name": "🔧 Daily Cron Optimizer",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771115400018,
-      "nextRun": 1771201800000,
-      "enabled": true
+      "nextRun": 1771201800000
     },
     {
-      "name": "🔍 Self-Improvement",
+      "name": "🔍 Daily Self-Improvement Review",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771117200017,
-      "nextRun": 1771203600000,
-      "enabled": true
+      "nextRun": 1771203600000
     },
     {
-      "name": "🔄 Daily Updates",
+      "name": "Daily updates - all tools",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771120800017,
-      "nextRun": 1771207200000,
-      "enabled": true
+      "nextRun": 1771207200000
     },
     {
-      "name": "🧠 LLM Optimizer",
+      "name": "🧠 Daily LLM Config Optimizer",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771122600016,
-      "nextRun": 1771209000000,
-      "enabled": true
+      "nextRun": 1771209000000
     },
     {
-      "name": "🏅 JO Hiver 2026",
+      "name": "JO Hiver 2026 - Alertes France",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771135200016,
-      "nextRun": 1771221600000,
-      "enabled": true
+      "nextRun": 1771221600000
     },
     {
-      "name": "☕ Podcast matin",
+      "name": "☕ Podcast du matin",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771140600035,
-      "nextRun": 1771227000000,
-      "enabled": true
+      "nextRun": 1771227000000
     },
     {
-      "name": "📈 Brief marchés",
+      "name": "📈 Brief marchés + reco",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1770969600012,
-      "nextRun": 1771228800000,
-      "enabled": true
+      "nextRun": 1771228800000
     },
     {
-      "name": "📊 Infra Monitor",
+      "name": "Weekly Infra Monitor",
+      "enabled": true,
       "lastStatus": null,
       "lastRun": null,
-      "nextRun": 1771228800000,
-      "enabled": true
+      "nextRun": 1771228800000
     },
     {
       "name": "🦊 Morning Wow",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771144200026,
-      "nextRun": 1771230600000,
-      "enabled": true
+      "nextRun": 1771230600000
     },
     {
-      "name": "🔒 Security Audit",
+      "name": "🔒 Security Audit — Secretair",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771145100017,
-      "nextRun": 1771231500000,
-      "enabled": true
+      "nextRun": 1771231500000
     },
     {
-      "name": "🏥 Health Check",
+      "name": "🏥 Health data check",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771146000018,
-      "nextRun": 1771232400000,
-      "enabled": true
+      "nextRun": 1771232400000
     },
     {
-      "name": "🧪 Feature du jour",
+      "name": "🧪 Feature du jour — Secretair",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771158600115,
-      "nextRun": 1771245000000,
-      "enabled": true
+      "nextRun": 1771245000000
     },
     {
       "name": "🔍 Midday Self-Check",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771160400126,
-      "nextRun": 1771246800000,
-      "enabled": true
+      "nextRun": 1771246800000
     },
     {
-      "name": "📰 Veille Business",
+      "name": "Veille Business Hebdo — Vendredi 15h",
+      "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1770991200008,
-      "nextRun": 1771596000000,
-      "enabled": true
+      "nextRun": 1771596000000
     },
     {
-      "name": "📊 Récap mensuel",
-      "lastStatus": null,
-      "lastRun": null,
-      "nextRun": 1772352000000,
-      "enabled": true
+      "name": "📊 Récap mensuel portfolio",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1770730794455,
+      "nextRun": 1772352000000
     }
   ],
-  "deliverables": [
-    {
-      "name": "Pitch Deck Secretair",
-      "desc": "12 slides — palette Secretair, speaker notes incluses. Import dans Pitch.com.",
-      "icon": "🦊",
-      "url": "secretair-pitch-deck.pptx",
-      "date": "15/02/2026"
-    }
-  ],
-  "generated": "2026-02-15 20:30"
+  "generated": "2026-02-15 19:31"
 };
