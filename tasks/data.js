@@ -163,5 +163,14 @@ window.__DASHBOARD_DATA = {
       "enabled": true
     }
   ],
-  "generated": "2026-02-15 18:50"
+  "deliverables": [
+    {
+      "name": "Pitch Deck Secretair",
+      "desc": "12 slides — palette Secretair, speaker notes incluses. Import dans Pitch.com.",
+      "icon": "🦊",
+      "url": "secretair-pitch-deck.pptx",
+      "date": "15/02/2026"
+    }
+  ],
+  "generated": "2026-02-15 20:30"
 };

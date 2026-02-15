@@ -370,6 +370,7 @@
     <div class="tab active" onclick="switchTab('overview')">Vue d'ensemble</div>
     <div class="tab" onclick="switchTab('tasks')">Tâches</div>
     <div class="tab" onclick="switchTab('crons')">Crons</div>
+    <div class="tab" onclick="switchTab('files')">Livrables</div>
   </div>
 
   <!-- OVERVIEW -->
@@ -390,6 +391,11 @@
     <div class="widgets" id="cronWidgets" style="padding-top:12px"></div>
   </div>
 
+  <!-- FILES -->
+  <div id="sec-files" class="section">
+    <div style="padding-top:14px" id="filesContainer"></div>
+  </div>
+
   <script src="data.js"></script>
   <script>
     let tasks = [], filter = 'active', currentTab = 'overview';
@@ -399,7 +405,7 @@
     function switchTab(tab) {
       currentTab = tab;
       document.querySelectorAll('.tab').forEach((t,i) => {
-        t.classList.toggle('active', ['overview','tasks','crons'][i] === tab);
+        t.classList.toggle('active', ['overview','tasks','crons','files'][i] === tab);
       });
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById('sec-' + tab).classList.add('active');
@@ -631,6 +637,7 @@
       renderOverview();
       renderTasks();
       renderCrons();
+      renderFiles();
     }
 
     async function refresh() {
@@ -646,6 +653,24 @@
       renderAll();
       document.getElementById('updated').textContent = `Mis à jour ${new Date().toLocaleTimeString('fr-FR')}`;
       setTimeout(() => btn.classList.remove('spinning'), 500);
+    }
+
+    function renderFiles() {
+      const files = (D.deliverables || []);
+      const c = document.getElementById('filesContainer');
+      if (!files.length) { c.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:40px">Aucun livrable</div>'; return; }
+      c.innerHTML = files.map(f => `
+        <a href="${f.url}" download style="text-decoration:none;display:block;margin:0 16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;box-shadow:var(--shadow-sm)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:22px">${f.icon || '📄'}</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:600;color:var(--text);font-size:14px">${f.name}</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px">${f.desc || ''}</div>
+            </div>
+            <span style="font-size:12px;color:var(--text-muted)">${f.date || ''}</span>
+          </div>
+        </a>
+      `).join('');
     }
 
     // Init
