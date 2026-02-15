@@ -343,6 +343,54 @@
     .section { display: none; }
     .section.active { display: block; }
 
+    /* ═══ Action Required ═══ */
+    .action-required {
+      background: linear-gradient(135deg, #FFF5F5, #FFFBEB);
+      border: 1.5px solid #FECACA;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 0;
+      box-shadow: 0 2px 12px rgba(248,113,113,0.1);
+    }
+    .action-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .action-pulse {
+      width: 10px; height: 10px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(248,113,113,0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(248,113,113,0); }
+    }
+    .action-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      color: #991B1B;
+    }
+    .action-list { display: flex; flex-direction: column; gap: 6px; }
+    .action-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.8);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .action-item:active { transform: scale(0.98); background: rgba(255,255,255,1); }
+    .action-icon { font-size: 18px; }
+    .action-content { flex: 1; min-width: 0; }
+    .action-name {
+      font-size: 13px; font-weight: 600;
+      color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .action-label { font-size: 11px; color: #B45309; font-weight: 500; margin-top: 1px; }
+    .action-arrow { color: var(--text-muted); font-size: 20px; font-weight: 300; }
+
     /* Tagline */
     .tagline {
       font-size: 12px; color: var(--text-secondary); font-weight: 400;
@@ -476,6 +524,35 @@
       </div>`;
     }
 
+    function renderActionRequired() {
+      const attente = tasks.filter(t => t.statut === 'Attente JS').sort((a,b) => a.ordre - b.ordre);
+      const relire = tasks.filter(t => t.statut === 'A relire' || t.statut === 'À relire').sort((a,b) => a.ordre - b.ordre);
+      const actionTasks = [...attente, ...relire];
+      if (!actionTasks.length) return '';
+
+      const count = actionTasks.length;
+      let html = `<div class="action-required">
+        <div class="action-header">
+          <span class="action-pulse"></span>
+          <span class="action-title">${count} action${count>1?'s':''} en attente</span>
+        </div>
+        <div class="action-list">`;
+      actionTasks.forEach(t => {
+        const icon = t.statut === 'Attente JS' ? '🔴' : '📖';
+        const label = t.statut === 'Attente JS' ? 'Décision requise' : 'À relire';
+        html += `<div class="action-item" onclick="switchTab('tasks');setFilter('${t.statut}')">
+          <span class="action-icon">${icon}</span>
+          <div class="action-content">
+            <div class="action-name">${esc(t.name)}</div>
+            <div class="action-label">${label}</div>
+          </div>
+          <span class="action-arrow">›</span>
+        </div>`;
+      });
+      html += '</div></div>';
+      return html;
+    }
+
     function renderTaskWidget() {
       const total = tasks.length;
       const done = tasks.filter(t => t.statut === 'Done').length;
@@ -540,7 +617,7 @@
 
     function renderOverview() {
       document.getElementById('widgets').innerHTML =
-        renderHealth() + renderTaskWidget() + renderCronSummary();
+        renderActionRequired() + renderHealth() + renderTaskWidget() + renderCronSummary();
     }
 
     function parse(raw) {
