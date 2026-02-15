@@ -334,6 +334,94 @@
     .task-detail .livrable a { color: var(--accent); text-decoration: none; }
     .task-detail .lien-block a { color: var(--blue); text-decoration: none; }
 
+    /* ═══ Task Chat ═══ */
+    .task-chat {
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .chat-messages {
+      max-height: 200px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 8px;
+      scrollbar-width: thin;
+    }
+    .chat-msg {
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 12px; line-height: 1.5;
+      max-width: 85%; word-wrap: break-word;
+      animation: reveal 0.2s ease-out;
+    }
+    .chat-msg.js {
+      background: var(--accent-bg);
+      color: var(--text);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg.sacha {
+      background: var(--bg);
+      color: var(--text);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .chat-msg .chat-time {
+      font-size: 9px; color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .chat-msg .chat-sender {
+      font-size: 10px; font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .chat-msg.sacha .chat-sender { color: var(--accent); }
+    .chat-msg.js .chat-sender { color: var(--text-secondary); }
+    .chat-input-wrap {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .chat-input {
+      flex: 1; padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: inherit; font-size: 13px;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .chat-input:focus { border-color: var(--accent); }
+    .chat-input::placeholder { color: var(--text-muted); }
+    .chat-send-btn {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border: none; border-radius: 50%;
+      color: #fff; font-size: 16px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .chat-send-btn:active { transform: scale(0.9); }
+    .chat-send-btn:disabled { opacity: 0.4; cursor: default; }
+    .chat-toggle {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 0 0;
+      font-size: 12px; font-weight: 600;
+      color: var(--accent); cursor: pointer;
+      border: none; background: none;
+      font-family: inherit;
+    }
+    .chat-toggle:active { opacity: 0.7; }
+    .chat-body { display: none; margin-top: 8px; }
+    .chat-body.open { display: block; }
+    .chat-dot {
+      width: 7px; height: 7px;
+      background: var(--coral);
+      border-radius: 50%;
+      display: none;
+    }
+    .chat-dot.has-new { display: inline-block; animation: pulse 2s infinite; }
+
     .empty { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
     .empty-icon { font-size: 48px; margin-bottom: 12px; }
     .empty-text { font-size: 15px; font-family: 'Nunito', sans-serif; }
@@ -699,6 +787,18 @@
               ${t.livrable?`<div class="livrable">${isUrl(t.livrable)?`<a href="${esc(t.livrable)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📦 Livrable ↗</a>`:`📦 ${esc(t.livrable)}`}</div>`:''}
               ${t.lien?`<div class="livrable lien-block"><a href="${esc(t.lien)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 Lien ↗</a></div>`:''}
             </div>`:''}
+            <div class="task-chat" onclick="event.stopPropagation()">
+              <button class="chat-toggle" onclick="toggleChat('${esc(t.id)}','${esc(t.name).replace(/'/g,"\\'")}')">
+                💬 Discuter avec Sacha <span class="chat-dot" id="dot-${esc(t.id)}"></span>
+              </button>
+              <div class="chat-body" id="chat-${esc(t.id)}">
+                <div class="chat-messages" id="msgs-${esc(t.id)}"></div>
+                <div class="chat-input-wrap">
+                  <input class="chat-input" id="input-${esc(t.id)}" placeholder="Pose ta question..." onkeydown="if(event.key==='Enter')sendChat('${esc(t.id)}','${esc(t.name).replace(/'/g,"\\'")}')">
+                  <button class="chat-send-btn" onclick="sendChat('${esc(t.id)}','${esc(t.name).replace(/'/g,"\\'")}')">↑</button>
+                </div>
+              </div>
+            </div>
           </div>`;
         });
       });
@@ -758,6 +858,74 @@
     document.getElementById('updated').textContent = `Données du ${new Date().toLocaleDateString('fr-FR')}`;
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     setInterval(refresh, 5*60*1000);
+
+    // ═══ Task Chat ═══
+    const CHAT_API = 'https://task-chat-pearl.vercel.app';
+    const chatPollers = {};
+
+    async function toggleChat(taskId, taskName) {
+      const body = document.getElementById('chat-' + taskId);
+      const isOpen = body.classList.toggle('open');
+      if (isOpen) {
+        await loadMessages(taskId);
+        if (!chatPollers[taskId]) {
+          chatPollers[taskId] = setInterval(() => loadMessages(taskId), 5000);
+        }
+      } else {
+        if (chatPollers[taskId]) { clearInterval(chatPollers[taskId]); delete chatPollers[taskId]; }
+      }
+    }
+
+    async function loadMessages(taskId) {
+      try {
+        const res = await fetch(`${CHAT_API}/api/messages?taskId=${encodeURIComponent(taskId)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const container = document.getElementById('msgs-' + taskId);
+        if (!data.messages || !data.messages.length) {
+          container.innerHTML = '<div style="text-align:center;font-size:11px;color:var(--text-muted);padding:12px">Aucun message. Pose ta première question !</div>';
+          return;
+        }
+        container.innerHTML = data.messages.map(m => {
+          const cls = m.sender === 'sacha' ? 'sacha' : 'js';
+          const name = m.sender === 'sacha' ? '🦊 Sacha' : '👤 JS';
+          const time = new Date(m.ts).toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+          return `<div class="chat-msg ${cls}">
+            <div class="chat-sender">${name}</div>
+            <div>${esc(m.message)}</div>
+            <div class="chat-time">${time}</div>
+          </div>`;
+        }).join('');
+        container.scrollTop = container.scrollHeight;
+      } catch(e) { console.error('Chat load error:', e); }
+    }
+
+    async function sendChat(taskId, taskName) {
+      const input = document.getElementById('input-' + taskId);
+      const msg = input.value.trim();
+      if (!msg) return;
+      input.value = '';
+
+      // Optimistic render
+      const container = document.getElementById('msgs-' + taskId);
+      const emptyMsg = container.querySelector('div[style]');
+      if (emptyMsg && emptyMsg.textContent.includes('Aucun')) emptyMsg.remove();
+      const time = new Date().toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+      container.innerHTML += `<div class="chat-msg js">
+        <div class="chat-sender">👤 JS</div>
+        <div>${esc(msg)}</div>
+        <div class="chat-time">${time}</div>
+      </div>`;
+      container.scrollTop = container.scrollHeight;
+
+      try {
+        await fetch(`${CHAT_API}/api/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ taskId, taskName, message: msg, sender: 'js' }),
+        });
+      } catch(e) { console.error('Chat send error:', e); }
+    }
   </script>
 </body>
 </html>
