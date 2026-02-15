@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-15 21:31
+// Auto-generated 2026-02-15 22:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "5 days, 15:30",
+    "uptime": "5 days, 16 hrs",
     "load": "",
-    "updated": "22:31"
+    "updated": "23:01"
   },
   "crons": [
     {
@@ -34,21 +34,14 @@ window.__DASHBOARD_DATA = {
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771110045250,
-      "nextRun": null
-    },
-    {
-      "name": "🌙 Night Shift — Notion Tasks",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771106400017,
-      "nextRun": 1771192800000
+      "nextRun": 1771194660000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771189200016,
-      "nextRun": 1771192800000
+      "lastRun": 1771191060019,
+      "nextRun": 1771194660000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -170,6 +163,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771246800000
     },
     {
+      "name": "🌙 Night Shift — Notion Tasks",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771106400017,
+      "nextRun": 1771279200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -179,10 +179,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1770849600012,
+      "lastStatus": null,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-15 21:31"
+  "generated": "2026-02-15 22:01"
 };
