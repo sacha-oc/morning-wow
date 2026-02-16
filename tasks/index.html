@@ -760,6 +760,30 @@
       margin-bottom: 10px;
       display: flex; align-items: center; gap: 8px;
     }
+
+    /* MC Summary Stats */
+    .mc-summary {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      margin-bottom: 16px;
+    }
+    .mc-summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 10px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .mc-summary-value {
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px; font-weight: 800; letter-spacing: -1px;
+    }
+    .mc-summary-label {
+      font-size: 9.5px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--text-secondary); margin-top: 2px;
+    }
+
+    /* MC Project Card */
     .mc-project {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -770,8 +794,10 @@
       transition: all 0.2s;
       -webkit-tap-highlight-color: transparent;
       animation: cardIn 0.4s cubic-bezier(.16,1,.3,1) both;
+      overflow: hidden;
     }
     .mc-project:active { transform: scale(0.98); }
+    .mc-project.open { box-shadow: var(--shadow-md); border-color: var(--border-strong); }
     .mc-project.open .mc-project-body { display: block; }
     .mc-project-top {
       display: flex; align-items: center; gap: 12px;
@@ -782,19 +808,52 @@
       font-family: 'Nunito', sans-serif;
       font-size: 16px; font-weight: 800; letter-spacing: -0.3px;
     }
-    .mc-project-status {
-      font-size: 12px; color: var(--text-secondary);
-      margin-top: 2px;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .mc-project-meta {
+      font-size: 11px; color: var(--text-secondary);
+      margin-top: 3px;
+      display: flex; gap: 10px; flex-wrap: wrap;
     }
+    .mc-project-meta span { white-space: nowrap; }
     .mc-health {
       width: 14px; height: 14px; border-radius: 50%;
       flex-shrink: 0;
       box-shadow: 0 0 8px currentColor;
+      animation: healthPulse 3s infinite;
     }
     .mc-health.green { background: var(--green); color: var(--green); }
     .mc-health.yellow { background: var(--amber); color: var(--amber); }
-    .mc-health.red { background: var(--coral); color: var(--coral); }
+    .mc-health.red { background: var(--coral); color: var(--coral); animation: healthPulseRed 1.5s infinite; }
+    @keyframes healthPulse {
+      0%, 100% { box-shadow: 0 0 6px currentColor; }
+      50% { box-shadow: 0 0 12px currentColor; }
+    }
+    @keyframes healthPulseRed {
+      0%, 100% { box-shadow: 0 0 6px currentColor; }
+      50% { box-shadow: 0 0 16px currentColor; }
+    }
+
+    /* Project progress bar */
+    .mc-project-progress {
+      margin-top: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .mc-project-progress-bar {
+      flex: 1; height: 5px;
+      background: var(--border);
+      border-radius: 5px; overflow: hidden;
+    }
+    .mc-project-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 5px;
+      transition: width 0.8s cubic-bezier(.16,1,.3,1);
+    }
+    .mc-project-progress-text {
+      font-size: 11px; font-weight: 700;
+      color: var(--text-secondary);
+      min-width: 36px; text-align: right;
+    }
+
     .mc-project-body {
       display: none;
       margin-top: 14px; padding-top: 14px;
@@ -817,6 +876,7 @@
       border-radius: var(--radius-sm);
       font-size: 13px; font-weight: 600;
       color: var(--accent);
+      display: flex; align-items: center; gap: 8px;
     }
     .mc-blocker {
       margin-top: 8px; padding: 10px 14px;
@@ -824,7 +884,24 @@
       border-radius: var(--radius-sm);
       font-size: 13px; font-weight: 600;
       color: var(--coral);
+      display: flex; align-items: center; gap: 8px;
     }
+
+    /* Task pills inside project */
+    .mc-task-pills {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 10px;
+    }
+    .mc-task-pill {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 6px;
+      background: var(--bg); color: var(--text-secondary);
+      border: 1px solid var(--border);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .mc-task-pill:active { transform: scale(0.95); }
+    .mc-task-pill.encours { background: var(--accent-bg); color: var(--accent); border-color: transparent; }
+    .mc-task-pill.attente { background: var(--coral-bg); color: var(--coral); border-color: transparent; }
 
     /* Activity Feed */
     .mc-feed { display: flex; flex-direction: column; gap: 0; }
@@ -879,7 +956,8 @@
   <div id="sec-mc" class="section active">
     <div style="padding:14px 20px 120px" id="mcContainer">
       <div id="mcAction"></div>
-      <div id="mcProjects" style="margin-top:8px"></div>
+      <div id="mcSummary" style="margin-top:8px"></div>
+      <div id="mcProjects" style="margin-top:12px"></div>
       <div id="mcActivity" style="margin-top:16px"></div>
     </div>
   </div>
@@ -1319,38 +1397,91 @@
       try {
         const res = await fetch(`${CHAT_API}/api/projects`);
         if (res.ok) mcProjects = await res.json();
-      } catch {}
+      } catch(e) { console.warn('MC projects load error:', e); }
     }
     async function loadMCActivity() {
       try {
         const res = await fetch(`${CHAT_API}/api/activity?limit=20`);
         if (res.ok) mcActivity = await res.json();
-      } catch {}
+      } catch(e) { console.warn('MC activity load error:', e); }
+    }
+
+    // Build project task stats from loaded tasks
+    function getProjectStats(projectName) {
+      const pTasks = tasks.filter(t => (t.projet || '').toLowerCase() === projectName.toLowerCase());
+      const total = pTasks.length;
+      const done = pTasks.filter(t => t.statut === 'Done').length;
+      const encours = pTasks.filter(t => t.statut === 'En cours').length;
+      const attente = pTasks.filter(t => t.statut === 'Attente JS').length;
+      const pct = total > 0 ? Math.round(done / total * 100) : 0;
+      return { total, done, encours, attente, pct, tasks: pTasks };
+    }
+
+    function renderMCSummary() {
+      const totalProjects = mcProjects.length;
+      const blockers = mcProjects.filter(p => p.blockers).length;
+      const red = mcProjects.filter(p => p.health === 'red').length;
+      const activeTasks = tasks.filter(t => t.statut !== 'Done').length;
+
+      document.getElementById('mcSummary').innerHTML = `
+        <div class="mc-summary">
+          <div class="mc-summary-card">
+            <div class="mc-summary-value" style="color:var(--accent)">${totalProjects}</div>
+            <div class="mc-summary-label">Projets</div>
+          </div>
+          <div class="mc-summary-card">
+            <div class="mc-summary-value" style="color:${activeTasks > 0 ? 'var(--amber)' : 'var(--green)'}">${activeTasks}</div>
+            <div class="mc-summary-label">Tâches actives</div>
+          </div>
+          <div class="mc-summary-card">
+            <div class="mc-summary-value" style="color:${blockers + red > 0 ? 'var(--coral)' : 'var(--green)'}">${blockers + red}</div>
+            <div class="mc-summary-label">Alertes</div>
+          </div>
+        </div>`;
     }
 
     function renderMCProjects() {
       if (!mcProjects.length) {
-        document.getElementById('mcProjects').innerHTML = '';
+        document.getElementById('mcProjects').innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:30px;font-size:14px">Chargement des projets...</div>';
         return;
       }
       let html = '<div class="mc-section-title">📡 Projets</div>';
       mcProjects.forEach((p, i) => {
         const health = p.health || 'green';
+        const stats = getProjectStats(p.name);
+        const metaParts = [];
+        if (stats.total > 0) metaParts.push(`${stats.done}/${stats.total} tâches`);
+        if (stats.encours > 0) metaParts.push(`${stats.encours} en cours`);
+        if (stats.attente > 0) metaParts.push(`${stats.attente} ⏸`);
+        if (!stats.total && p.lastAction) metaParts.push(p.lastAction);
+
         html += `<div class="mc-project" onclick="this.classList.toggle('open')" style="animation-delay:${i*0.06}s">
           <div class="mc-project-top">
             <div class="mc-project-emoji">${esc(p.emoji || '📦')}</div>
             <div class="mc-project-info">
               <div class="mc-project-name">${esc(p.name)}</div>
-              <div class="mc-project-status">${esc(p.lastAction || 'Aucune action récente')}</div>
+              <div class="mc-project-meta">
+                ${metaParts.map(m => `<span>${esc(m)}</span>`).join('')}
+              </div>
             </div>
             <div class="mc-health ${health}"></div>
           </div>
+          ${stats.total > 0 ? `<div class="mc-project-progress">
+            <div class="mc-project-progress-bar"><div class="mc-project-progress-fill" style="width:${stats.pct}%"></div></div>
+            <div class="mc-project-progress-text">${stats.pct}%</div>
+          </div>` : ''}
           <div class="mc-project-body">
             ${p.stack ? `<div class="mc-detail-row"><span class="mc-detail-label">Stack</span><span class="mc-detail-value">${esc(p.stack)}</span></div>` : ''}
             ${p.repo ? `<div class="mc-detail-row"><span class="mc-detail-label">Repo</span><span class="mc-detail-value">${esc(p.repo)}</span></div>` : ''}
             ${p.deployUrl ? `<div class="mc-detail-row"><span class="mc-detail-label">URL</span><span class="mc-detail-value"><a href="${esc(p.deployUrl)}" target="_blank" onclick="event.stopPropagation()">${esc(p.deployUrl)}</a></span></div>` : ''}
-            ${p.nextStep ? `<div class="mc-next">▶ ${esc(p.nextStep)}</div>` : ''}
+            ${p.nextStep ? `<div class="mc-next">▶ Next: ${esc(p.nextStep)}</div>` : ''}
             ${p.blockers ? `<div class="mc-blocker">🚫 ${esc(p.blockers)}</div>` : ''}
+            ${stats.tasks.length > 0 ? `<div class="mc-task-pills">
+              ${stats.tasks.filter(t => t.statut !== 'Done').slice(0, 8).map(t => {
+                const cls = t.statut === 'En cours' ? 'encours' : t.statut === 'Attente JS' ? 'attente' : '';
+                return `<span class="mc-task-pill ${cls}" onclick="event.stopPropagation();switchTab('tasks');setTimeout(()=>openTask('${esc(t.id)}'),200)">${esc(t.name.length > 25 ? t.name.slice(0,25)+'…' : t.name)}</span>`;
+              }).join('')}
+            </div>` : ''}
           </div>
         </div>`;
       });
@@ -1378,15 +1509,17 @@
     }
 
     function renderMC() {
-      // Action required (reuse existing)
       document.getElementById('mcAction').innerHTML = renderActionRequired();
+      renderMCSummary();
       renderMCProjects();
       renderMCActivity();
     }
 
     async function loadMC() {
-      await Promise.all([loadMCProjects(), loadMCActivity()]);
-      if (currentTab === 'mc') renderMC();
+      try {
+        await Promise.all([loadMCProjects(), loadMCActivity()]);
+      } catch(e) { console.error('loadMC error:', e); }
+      renderMC();
     }
 
     function renderAll() {
