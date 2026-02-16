@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 13:01
+// Auto-generated 2026-02-16 14:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,39 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 56,
-    "uptime": "6 days, 7 hrs",
+    "ramPct": 51,
+    "uptime": "6 days, 8 hrs",
     "load": "",
-    "updated": "14:01"
+    "updated": "15:01"
   },
   "crons": [
-    {
-      "name": "🔍 Midday Self-Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771160400126,
-      "nextRun": 1771246800000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771243200019,
-      "nextRun": 1771246800000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771246702941,
-      "nextRun": 1771246822920
-    },
     {
       "name": "💬 Notion Comments Check",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771239647591,
       "nextRun": 1771250400000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771246839573,
+      "nextRun": 1771250400000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771250302939,
+      "nextRun": 1771250422920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -170,6 +163,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771331400000
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771246800017,
+      "nextRun": 1771333200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -194,9 +194,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771211833053,
+      "lastRun": 1771211700018,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 13:01"
+  "generated": "2026-02-16 14:01"
 };
