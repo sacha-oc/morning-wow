@@ -1393,17 +1393,27 @@
     function isUrl(s) { return /^https?:\/\//i.test(s||''); }
 
     // ═══ Mission Control ═══
+    // Load from cache immediately
+    try { mcProjects = JSON.parse(localStorage.getItem('mc-projects') || '[]'); } catch {}
+    try { mcActivity = JSON.parse(localStorage.getItem('mc-activity') || '[]'); } catch {}
+
     async function loadMCProjects() {
       try {
         const res = await fetch(`${CHAT_API}/api/projects`);
-        if (res.ok) mcProjects = await res.json();
-      } catch(e) { console.warn('MC projects load error:', e); }
+        if (res.ok) {
+          mcProjects = await res.json();
+          localStorage.setItem('mc-projects', JSON.stringify(mcProjects));
+        }
+      } catch(e) {}
     }
     async function loadMCActivity() {
       try {
         const res = await fetch(`${CHAT_API}/api/activity?limit=20`);
-        if (res.ok) mcActivity = await res.json();
-      } catch(e) { console.warn('MC activity load error:', e); }
+        if (res.ok) {
+          mcActivity = await res.json();
+          localStorage.setItem('mc-activity', JSON.stringify(mcActivity));
+        }
+      } catch(e) {}
     }
 
     // Build project task stats from loaded tasks
@@ -1587,8 +1597,8 @@
     const cached = localStorage.getItem('tasks');
     if (cached) tasks = JSON.parse(cached);
     if (window.__CACHED_TASKS) { tasks = parse(window.__CACHED_TASKS); localStorage.setItem('tasks', JSON.stringify(tasks)); }
-    renderAll();
-    loadMC(); // Load mission control data
+    renderAll(); // renders MC immediately from cache
+    loadMC(); // refreshes MC data in background
     document.getElementById('updated').textContent = `Données du ${new Date().toLocaleDateString('fr-FR')}`;
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     setInterval(refresh, 5*60*1000);
