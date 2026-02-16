@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 16:00
+// Auto-generated 2026-02-16 17:04
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,25 +23,18 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 73,
-    "uptime": "6 days,  9:59",
+    "ramPct": 65,
+    "uptime": "6 days, 11:03",
     "load": "",
-    "updated": "17:00"
+    "updated": "18:04"
   },
   "crons": [
     {
-      "name": "📊 Dashboard Data Refresh",
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771254000018,
-      "nextRun": 1771257600000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771257502939,
-      "nextRun": 1771257622920
+      "lastRun": 1771260300020,
+      "nextRun": 1771261200000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -56,6 +49,20 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "error",
       "lastRun": 1771250400014,
       "nextRun": 1771261200000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771257601419,
+      "nextRun": 1771261200000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771261158741,
+      "nextRun": 1771261222920
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -114,11 +121,11 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
-      "name": "JO Hiver 2026 - Alertes France",
+      "name": "🎯 Daily Task Proposal",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771221600024,
-      "nextRun": 1771308000000
+      "lastStatus": null,
+      "lastRun": null,
+      "nextRun": 1771311600000
     },
     {
       "name": "☕ Podcast du matin",
@@ -198,5 +205,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 16:00"
+  "generated": "2026-02-16 17:04"
 };
