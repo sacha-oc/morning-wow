@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 17:04
+// Auto-generated 2026-02-16 18:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,46 +23,39 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 65,
-    "uptime": "6 days, 11:03",
+    "ramPct": 62,
+    "uptime": "6 days, 12 hrs",
     "load": "",
-    "updated": "18:04"
+    "updated": "19:01"
   },
   "crons": [
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771260300020,
-      "nextRun": 1771261200000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771239600003,
-      "nextRun": 1771261200000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771250400014,
-      "nextRun": 1771261200000
+      "lastRun": 1771263900026,
+      "nextRun": 1771264800000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771257601419,
-      "nextRun": 1771261200000
+      "lastRun": 1771261460955,
+      "nextRun": 1771264800000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771261158741,
-      "nextRun": 1771261222920
+      "lastRun": 1771264760518,
+      "nextRun": 1771264822920
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771261324033,
+      "nextRun": 1771272000000
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -70,6 +63,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771192800020,
       "nextRun": 1771279200000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771261217058,
+      "nextRun": 1771282800000
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -123,7 +123,7 @@ window.__DASHBOARD_DATA = {
     {
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
-      "lastStatus": null,
+      "lastStatus": "ok",
       "lastRun": null,
       "nextRun": 1771311600000
     },
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771211833053,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 17:04"
+  "generated": "2026-02-16 18:01"
 };
