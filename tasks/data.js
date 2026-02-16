@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 04:00
+// Auto-generated 2026-02-16 05:02
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,37 +24,23 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 49,
-    "uptime": "5 days, 21:59",
+    "uptime": "5 days, 23:02",
     "load": "",
-    "updated": "05:00"
+    "updated": "06:02"
   },
   "crons": [
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771196400052,
-      "nextRun": 1771218000000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771207319059,
-      "nextRun": 1771218000000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771210800018,
-      "nextRun": 1771218000000
-    },
     {
       "name": "JO Hiver 2026 - Alertes France",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771135200016,
+      "nextRun": 1771221600000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771214400019,
       "nextRun": 1771221600000
     },
     {
@@ -79,6 +65,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771228800000
     },
     {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771207319059,
+      "nextRun": 1771228800000
+    },
+    {
       "name": "🦊 Morning Wow",
       "enabled": true,
       "lastStatus": "ok",
@@ -98,6 +91,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771146000018,
       "nextRun": 1771232400000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771196400052,
+      "nextRun": 1771239600000
     },
     {
       "name": "🧪 Feature du jour — Secretair",
@@ -184,5 +184,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 04:00"
+  "generated": "2026-02-16 05:02"
 };
