@@ -998,15 +998,31 @@
       renderFiles();
     }
 
+    const STATUT_MAP = {'backlog':'Backlog','a-relire':'A relire','en-cours':'En cours','attente-js':'Attente JS','done':'Done'};
+
     async function refresh() {
       const btn = document.getElementById('refreshBtn');
       btn.classList.add('spinning');
       try {
-        const res = await fetch('https://notion-proxy.secretair.workers.dev/query', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ database_id:'30497be2-94c5-81d3-ae2c-000be5c0a0f0', sorts:[{property:'Ordre',direction:'ascending'}] })
-        });
-        if (res.ok) { tasks = parse((await res.json()).results); localStorage.setItem('tasks', JSON.stringify(tasks)); }
+        const res = await fetch('https://task-chat-pearl.vercel.app/api/tasks');
+        if (res.ok) {
+          const raw = await res.json();
+          tasks = raw.map(t => ({
+            id: t.id,
+            name: t.name || '?',
+            statut: STATUT_MAP[t.statut] || t.statut || '?',
+            priorite: t.priorite || '',
+            ordre: Number(t.ordre) || 999,
+            effort: t.effort || '',
+            type: t.type || '',
+            projet: t.projet || '',
+            notes: t.notesJs || '',
+            livrable: t.livrable || '',
+            lien: t.notionLink || '',
+            links: t.links || [],
+          })).sort((a,b) => a.ordre - b.ordre);
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
       } catch {}
       renderAll();
       document.getElementById('updated').textContent = `Mis à jour ${new Date().toLocaleTimeString('fr-FR')}`;
