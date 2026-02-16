@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 14:01
+// Auto-generated 2026-02-16 15:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,38 +23,38 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "6 days, 8 hrs",
+    "ramPct": 76,
+    "uptime": "6 days,  8:59",
     "load": "",
-    "updated": "15:01"
+    "updated": "16:00"
   },
   "crons": [
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771239647591,
-      "nextRun": 1771250400000
-    },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771246839573,
-      "nextRun": 1771250400000
+      "lastRun": 1771250490018,
+      "nextRun": 1771254000000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771250302939,
-      "nextRun": 1771250422920
+      "lastRun": 1771253902945,
+      "nextRun": 1771254022920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771239600003,
+      "nextRun": 1771261200000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771250400014,
       "nextRun": 1771261200000
     },
     {
@@ -194,9 +194,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771211700018,
+      "lastRun": 1771211833053,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 14:01"
+  "generated": "2026-02-16 15:00"
 };
