@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 21:01
+// Auto-generated 2026-02-16 22:11
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,39 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 57,
-    "uptime": "6 days, 15 hrs",
+    "ramPct": 54,
+    "uptime": "6 days, 16:10",
     "load": "",
-    "updated": "22:01"
+    "updated": "23:11"
   },
   "crons": [
-    {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771274801526,
-      "nextRun": 1771275600000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771272072763,
-      "nextRun": 1771275600000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771275502943,
-      "nextRun": 1771275622920
-    },
     {
       "name": "🌙 Night Shift — Notion Tasks",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771192800020,
       "nextRun": 1771279200000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771275648926,
+      "nextRun": 1771279200000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771279157027,
+      "nextRun": 1771279222920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -114,16 +107,23 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771298100000
     },
     {
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771278300013,
+      "nextRun": 1771304400000
+    },
+    {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
       "enabled": true,
-      "lastStatus": null,
+      "lastStatus": "ok",
       "lastRun": null,
       "nextRun": 1771304400000
     },
     {
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
-      "lastStatus": null,
+      "lastStatus": "ok",
       "lastRun": null,
       "nextRun": 1771311600000
     },
@@ -205,5 +205,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 21:01"
+  "generated": "2026-02-16 22:11"
 };
