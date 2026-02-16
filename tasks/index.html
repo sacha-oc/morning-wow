@@ -771,7 +771,7 @@
       actionTasks.forEach(t => {
         const icon = t.statut === 'Attente JS' ? '🔴' : '📖';
         const label = t.statut === 'Attente JS' ? 'Décision requise' : 'À relire';
-        html += `<div class="action-item" onclick="switchTab('tasks');setFilter('${t.statut}')">
+        html += `<div class="action-item" onclick="switchTab('tasks');setFilter('all');setTimeout(()=>openTask('${esc(t.id)}'),200)">
           <span class="action-icon">${icon}</span>
           <div class="action-content">
             <div class="action-name">${esc(t.name)}</div>
