@@ -523,6 +523,16 @@
       display: none;
     }
     .chat-dot.has-new { display: inline-block; animation: pulse 2s infinite; }
+    .chat-toggle.has-unread {
+      color: var(--coral);
+      font-weight: 700;
+    }
+    .chat-toggle.has-unread::after {
+      content: ' • nouveau';
+      font-size: 10px;
+      color: var(--coral);
+      animation: pulse 2s infinite;
+    }
     .typing-indicator {
       display: none; align-items: center; gap: 6px;
       padding: 8px 12px;
@@ -1125,6 +1135,39 @@
     loadNotifications();
     setInterval(loadNotifications, 10000);
 
+    // ═══ Unread from Sacha ═══
+    let unreadJsTasks = new Set();
+
+    async function pollUnreadJs() {
+      try {
+        const res = await fetch(`${CHAT_API}/api/unread-js`);
+        if (!res.ok) return;
+        const data = await res.json();
+        unreadJsTasks = new Set(data.taskIds || []);
+        // Update all chat toggle buttons
+        document.querySelectorAll('.chat-toggle').forEach(btn => {
+          const chatBody = btn.nextElementSibling;
+          if (!chatBody) return;
+          const id = chatBody.id?.replace('chat-', '');
+          btn.classList.toggle('has-unread', unreadJsTasks.has(id));
+        });
+      } catch {}
+    }
+
+    async function markReadJs(taskId) {
+      unreadJsTasks.delete(taskId);
+      try {
+        await fetch(`${CHAT_API}/api/unread-js`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ taskId }),
+        });
+      } catch {}
+    }
+
+    pollUnreadJs();
+    setInterval(pollUnreadJs, 10000);
+
     // ═══ Task Chat ═══
     const CHAT_API = 'https://task-chat-pearl.vercel.app';
     const chatPollers = {};
@@ -1134,6 +1177,12 @@
       const isOpen = body.classList.toggle('open');
       if (isOpen) {
         await loadMessages(taskId);
+        if (unreadJsTasks.has(taskId)) {
+          markReadJs(taskId);
+          // Remove visual indicator
+          const btn = body.previousElementSibling;
+          if (btn) btn.classList.remove('has-unread');
+        }
         await checkTyping(taskId);
         if (!chatPollers[taskId]) {
           chatPollers[taskId] = setInterval(() => {
