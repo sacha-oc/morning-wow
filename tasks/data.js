@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 20:01
+// Auto-generated 2026-02-16 21:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,39 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 60,
-    "uptime": "6 days, 14 hrs",
+    "ramPct": 57,
+    "uptime": "6 days, 15 hrs",
     "load": "",
-    "updated": "21:01"
+    "updated": "22:01"
   },
   "crons": [
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771271100023,
-      "nextRun": 1771272000000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771261324033,
-      "nextRun": 1771272000000
+      "lastRun": 1771274801526,
+      "nextRun": 1771275600000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771268480278,
-      "nextRun": 1771272000000
+      "lastRun": 1771272072763,
+      "nextRun": 1771275600000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771271909729,
-      "nextRun": 1771272022920
+      "lastRun": 1771275502943,
+      "nextRun": 1771275622920
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -69,6 +62,13 @@ window.__DASHBOARD_DATA = {
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771261217058,
+      "nextRun": 1771282800000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771272018432,
       "nextRun": 1771282800000
     },
     {
@@ -205,5 +205,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 20:01"
+  "generated": "2026-02-16 21:01"
 };
