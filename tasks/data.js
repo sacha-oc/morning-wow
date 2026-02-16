@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 00:32
+// Auto-generated 2026-02-16 01:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,25 +24,11 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 51,
-    "uptime": "5 days, 18:32",
+    "uptime": "5 days, 19 hrs",
     "load": "",
-    "updated": "01:32"
+    "updated": "02:01"
   },
   "crons": [
-    {
-      "name": "🔍 Daily Self-Improvement Review",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771117200017,
-      "nextRun": 1771203600000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771200000018,
-      "nextRun": 1771203600000
-    },
     {
       "name": "Daily updates - all tools",
       "enabled": true,
@@ -58,6 +44,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771207200000
     },
     {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771201860019,
+      "nextRun": 1771207200000
+    },
+    {
       "name": "🧠 Daily LLM Config Optimizer",
       "enabled": true,
       "lastStatus": "ok",
@@ -67,18 +60,21 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771209000000
     },
     {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771210800000
     },
     {
       "name": "🎯 Model Assignment Optimizer",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771211700000
     },
@@ -113,6 +109,7 @@ window.__DASHBOARD_DATA = {
     {
       "name": "Weekly Infra Monitor",
       "enabled": true,
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771228800000
     },
@@ -162,8 +159,15 @@ window.__DASHBOARD_DATA = {
       "name": "🔧 Daily Cron Optimizer",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771115400018,
+      "lastRun": 1771201800017,
       "nextRun": 1771288200000
+    },
+    {
+      "name": "🔍 Daily Self-Improvement Review",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771117200017,
+      "nextRun": 1771290000000
     },
     {
       "name": "Veille Business Hebdo — Vendredi 15h",
@@ -176,9 +180,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1771140600035,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 00:32"
+  "generated": "2026-02-16 01:01"
 };
