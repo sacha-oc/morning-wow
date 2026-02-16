@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 15:00
+// Auto-generated 2026-02-16 16:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,25 +23,25 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 76,
-    "uptime": "6 days,  8:59",
+    "ramPct": 73,
+    "uptime": "6 days,  9:59",
     "load": "",
-    "updated": "16:00"
+    "updated": "17:00"
   },
   "crons": [
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771250490018,
-      "nextRun": 1771254000000
+      "lastRun": 1771254000018,
+      "nextRun": 1771257600000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771253902945,
-      "nextRun": 1771254022920
+      "lastRun": 1771257502939,
+      "nextRun": 1771257622920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -198,5 +198,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 15:00"
+  "generated": "2026-02-16 16:00"
 };
