@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 08:03
+// Auto-generated 2026-02-16 09:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,61 +23,12 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 52,
-    "uptime": "6 days,  2:02",
+    "ramPct": 60,
+    "uptime": "6 days,  2:59",
     "load": "",
-    "updated": "09:03"
+    "updated": "10:00"
   },
   "crons": [
-    {
-      "name": "📈 Brief marchés + reco",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1770969600012,
-      "nextRun": 1771228800000
-    },
-    {
-      "name": "Weekly Infra Monitor",
-      "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
-      "nextRun": 1771228800000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771218081202,
-      "nextRun": 1771228800000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771225200010,
-      "nextRun": 1771228800000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771228702940,
-      "nextRun": 1771228822920
-    },
-    {
-      "name": "🦊 Morning Wow",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771144200026,
-      "nextRun": 1771230600000
-    },
-    {
-      "name": "🔒 Security Audit — Secretair",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771145100017,
-      "nextRun": 1771231500000
-    },
     {
       "name": "🏥 Health data check",
       "enabled": true,
@@ -86,17 +37,31 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771232400000
     },
     {
-      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
+      "lastStatus": "ok",
+      "lastRun": 1771228960246,
       "nextRun": 1771232400000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771232302940,
+      "nextRun": 1771232422920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771218000018,
+      "nextRun": 1771239600000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771228870242,
       "nextRun": 1771239600000
     },
     {
@@ -163,6 +128,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771298100000
     },
     {
+      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": null,
+      "nextRun": 1771304400000
+    },
+    {
       "name": "JO Hiver 2026 - Alertes France",
       "enabled": true,
       "lastStatus": "ok",
@@ -175,6 +147,27 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771227000018,
       "nextRun": 1771313400000
+    },
+    {
+      "name": "📈 Brief marchés + reco",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771228800019,
+      "nextRun": 1771315200000
+    },
+    {
+      "name": "🦊 Morning Wow",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771230600025,
+      "nextRun": 1771317000000
+    },
+    {
+      "name": "🔒 Security Audit — Secretair",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771231500017,
+      "nextRun": 1771317900000
     },
     {
       "name": "Veille Business Hebdo — Vendredi 15h",
@@ -191,12 +184,19 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771815600000
     },
     {
+      "name": "Weekly Infra Monitor",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771228845766,
+      "nextRun": 1771833600000
+    },
+    {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771210800004,
+      "lastRun": 1771210800071,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 08:03"
+  "generated": "2026-02-16 09:00"
 };
