@@ -1006,7 +1006,12 @@
       list.innerHTML = notifications.map(n => {
         const isUnread = n.ts > lastRead;
         const ago = timeAgo(n.ts);
-        return `<div class="notif-item ${isUnread ? 'unread' : ''}" onclick="${n.taskId ? `toggleNotifs();switchTab('tasks')` : ''}">
+        const clickAction = n.taskId 
+          ? `toggleNotifs();switchTab('tasks');setTimeout(()=>openTask('${esc(n.taskId)}'),150)` 
+          : n.tab 
+            ? `toggleNotifs();switchTab('${esc(n.tab)}')` 
+            : '';
+        return `<div class="notif-item ${isUnread ? 'unread' : ''}" onclick="${clickAction}" style="${clickAction ? 'cursor:pointer' : ''}">
           <span class="notif-icon">${n.icon || '🦊'}</span>
           <div class="notif-content">
             <div class="notif-title">${esc(n.title)}</div>
@@ -1046,6 +1051,30 @@
         updateNotifBadge();
         if (notifOpen) renderNotifs();
       } catch(e) {}
+    }
+
+    function openTask(taskId) {
+      const allTasks = document.querySelectorAll('.task');
+      for (const el of allTasks) {
+        const chatEl = el.querySelector(`[id^="chat-"]`);
+        if (chatEl && chatEl.id === 'chat-' + taskId) {
+          if (!el.classList.contains('open')) el.classList.add('open');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.style.boxShadow = '0 0 0 2px var(--accent)';
+          setTimeout(() => el.style.boxShadow = '', 2000);
+          return;
+        }
+      }
+      // Fallback: search by data in onclick attribute
+      for (const el of allTasks) {
+        if (el.innerHTML.includes(taskId)) {
+          if (!el.classList.contains('open')) el.classList.add('open');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.style.boxShadow = '0 0 0 2px var(--accent)';
+          setTimeout(() => el.style.boxShadow = '', 2000);
+          return;
+        }
+      }
     }
 
     loadNotifications();
