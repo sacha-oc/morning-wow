@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 18:01
+// Auto-generated 2026-02-16 19:02
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,32 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 62,
-    "uptime": "6 days, 12 hrs",
+    "ramPct": 63,
+    "uptime": "6 days, 13:01",
     "load": "",
-    "updated": "19:01"
+    "updated": "20:02"
   },
   "crons": [
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771263900026,
-      "nextRun": 1771264800000
+      "lastRun": 1771267500030,
+      "nextRun": 1771268400000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771261460955,
-      "nextRun": 1771264800000
+      "lastRun": 1771264826244,
+      "nextRun": 1771268400000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771264760518,
-      "nextRun": 1771264822920
+      "lastRun": 1771268302932,
+      "nextRun": 1771268422920
     },
     {
       "name": "💬 Notion Comments Check",
@@ -123,7 +123,7 @@ window.__DASHBOARD_DATA = {
     {
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
-      "lastStatus": "ok",
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771311600000
     },
@@ -200,10 +200,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 18:01"
+  "generated": "2026-02-16 19:02"
 };
