@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 19:02
+// Auto-generated 2026-02-16 20:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,32 +23,18 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 63,
-    "uptime": "6 days, 13:01",
+    "ramPct": 60,
+    "uptime": "6 days, 14 hrs",
     "load": "",
-    "updated": "20:02"
+    "updated": "21:01"
   },
   "crons": [
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771267500030,
-      "nextRun": 1771268400000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771264826244,
-      "nextRun": 1771268400000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771268302932,
-      "nextRun": 1771268422920
+      "lastRun": 1771271100023,
+      "nextRun": 1771272000000
     },
     {
       "name": "💬 Notion Comments Check",
@@ -56,6 +42,20 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "error",
       "lastRun": 1771261324033,
       "nextRun": 1771272000000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771268480278,
+      "nextRun": 1771272000000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771271909729,
+      "nextRun": 1771272022920
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -200,10 +200,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
+      "lastStatus": "ok",
+      "lastRun": 1771211833053,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 19:02"
+  "generated": "2026-02-16 20:01"
 };
