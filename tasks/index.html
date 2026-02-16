@@ -751,6 +751,98 @@
       font-size: 12px; color: var(--text-secondary); font-weight: 400;
       margin-top: 2px;
     }
+
+    /* ═══ Mission Control ═══ */
+    .mc-section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--text-secondary);
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .mc-project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px; margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      animation: cardIn 0.4s cubic-bezier(.16,1,.3,1) both;
+    }
+    .mc-project:active { transform: scale(0.98); }
+    .mc-project.open .mc-project-body { display: block; }
+    .mc-project-top {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .mc-project-emoji { font-size: 28px; }
+    .mc-project-info { flex: 1; min-width: 0; }
+    .mc-project-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 800; letter-spacing: -0.3px;
+    }
+    .mc-project-status {
+      font-size: 12px; color: var(--text-secondary);
+      margin-top: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .mc-health {
+      width: 14px; height: 14px; border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px currentColor;
+    }
+    .mc-health.green { background: var(--green); color: var(--green); }
+    .mc-health.yellow { background: var(--amber); color: var(--amber); }
+    .mc-health.red { background: var(--coral); color: var(--coral); }
+    .mc-project-body {
+      display: none;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--border);
+      animation: reveal 0.3s ease-out;
+    }
+    .mc-detail-row {
+      display: flex; gap: 8px; margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .mc-detail-label {
+      color: var(--text-muted); font-weight: 600;
+      min-width: 80px; flex-shrink: 0;
+    }
+    .mc-detail-value { color: var(--text-secondary); word-break: break-word; }
+    .mc-detail-value a { color: var(--accent); text-decoration: none; }
+    .mc-next {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--accent-bg);
+      border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600;
+      color: var(--accent);
+    }
+    .mc-blocker {
+      margin-top: 8px; padding: 10px 14px;
+      background: var(--coral-bg);
+      border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600;
+      color: var(--coral);
+    }
+
+    /* Activity Feed */
+    .mc-feed { display: flex; flex-direction: column; gap: 0; }
+    .mc-feed-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      animation: cardIn 0.3s cubic-bezier(.16,1,.3,1) both;
+    }
+    .mc-feed-item:last-child { border-bottom: none; }
+    .mc-feed-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .mc-feed-content { flex: 1; min-width: 0; }
+    .mc-feed-action { color: var(--text); line-height: 1.4; }
+    .mc-feed-action .mc-feed-project {
+      font-weight: 700; color: var(--accent);
+    }
+    .mc-feed-time { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -777,14 +869,23 @@
   </div>
 
   <div class="tabs" id="tabBar">
-    <div class="tab active" onclick="switchTab('overview')">Vue d'ensemble</div>
+    <div class="tab active" onclick="switchTab('mc')">🎯 Mission</div>
     <div class="tab" onclick="switchTab('tasks')">Tâches</div>
     <div class="tab" onclick="switchTab('crons')">Crons</div>
     <div class="tab" onclick="switchTab('files')">Livrables</div>
   </div>
 
-  <!-- OVERVIEW -->
-  <div id="sec-overview" class="section active">
+  <!-- MISSION CONTROL -->
+  <div id="sec-mc" class="section active">
+    <div style="padding:14px 20px 120px" id="mcContainer">
+      <div id="mcAction"></div>
+      <div id="mcProjects" style="margin-top:8px"></div>
+      <div id="mcActivity" style="margin-top:16px"></div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW (legacy, hidden) -->
+  <div id="sec-overview" class="section">
     <div class="widgets" id="widgets" style="padding-top:14px"></div>
   </div>
 
@@ -829,8 +930,9 @@
 
   <script src="data.js"></script>
   <script>
-    let tasks = [], filter = 'active', currentTab = 'overview';
+    let tasks = [], filter = 'active', currentTab = 'mc';
     let searchQuery = '', sortMode = 'ordre'; // 'ordre' or 'date'
+    let mcProjects = [], mcActivity = [];
     const D = window.__DASHBOARD_DATA || {};
     const statusClass = { 'Done':'done', 'En cours':'encours', 'Backlog':'backlog', 'Attente JS':'attente', 'A relire':'relire', 'À relire':'relire', 'To Do':'todo', 'À faire':'todo' };
 
@@ -877,10 +979,11 @@
     function switchTab(tab) {
       currentTab = tab;
       document.querySelectorAll('.tab').forEach((t,i) => {
-        t.classList.toggle('active', ['overview','tasks','crons','files'][i] === tab);
+        t.classList.toggle('active', ['mc','tasks','crons','files'][i] === tab);
       });
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById('sec-' + tab).classList.add('active');
+      if (tab === 'mc') renderMC();
     }
 
     function renderSystem() {
@@ -1211,12 +1314,88 @@
     function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function isUrl(s) { return /^https?:\/\//i.test(s||''); }
 
+    // ═══ Mission Control ═══
+    async function loadMCProjects() {
+      try {
+        const res = await fetch(`${CHAT_API}/api/projects`);
+        if (res.ok) mcProjects = await res.json();
+      } catch {}
+    }
+    async function loadMCActivity() {
+      try {
+        const res = await fetch(`${CHAT_API}/api/activity?limit=20`);
+        if (res.ok) mcActivity = await res.json();
+      } catch {}
+    }
+
+    function renderMCProjects() {
+      if (!mcProjects.length) {
+        document.getElementById('mcProjects').innerHTML = '';
+        return;
+      }
+      let html = '<div class="mc-section-title">📡 Projets</div>';
+      mcProjects.forEach((p, i) => {
+        const health = p.health || 'green';
+        html += `<div class="mc-project" onclick="this.classList.toggle('open')" style="animation-delay:${i*0.06}s">
+          <div class="mc-project-top">
+            <div class="mc-project-emoji">${esc(p.emoji || '📦')}</div>
+            <div class="mc-project-info">
+              <div class="mc-project-name">${esc(p.name)}</div>
+              <div class="mc-project-status">${esc(p.lastAction || 'Aucune action récente')}</div>
+            </div>
+            <div class="mc-health ${health}"></div>
+          </div>
+          <div class="mc-project-body">
+            ${p.stack ? `<div class="mc-detail-row"><span class="mc-detail-label">Stack</span><span class="mc-detail-value">${esc(p.stack)}</span></div>` : ''}
+            ${p.repo ? `<div class="mc-detail-row"><span class="mc-detail-label">Repo</span><span class="mc-detail-value">${esc(p.repo)}</span></div>` : ''}
+            ${p.deployUrl ? `<div class="mc-detail-row"><span class="mc-detail-label">URL</span><span class="mc-detail-value"><a href="${esc(p.deployUrl)}" target="_blank" onclick="event.stopPropagation()">${esc(p.deployUrl)}</a></span></div>` : ''}
+            ${p.nextStep ? `<div class="mc-next">▶ ${esc(p.nextStep)}</div>` : ''}
+            ${p.blockers ? `<div class="mc-blocker">🚫 ${esc(p.blockers)}</div>` : ''}
+          </div>
+        </div>`;
+      });
+      document.getElementById('mcProjects').innerHTML = html;
+    }
+
+    function renderMCActivity() {
+      if (!mcActivity.length) {
+        document.getElementById('mcActivity').innerHTML = '';
+        return;
+      }
+      let html = '<div class="mc-section-title">📝 Activité récente</div><div class="mc-feed">';
+      mcActivity.forEach((a, i) => {
+        const ago = timeAgo(a.ts);
+        html += `<div class="mc-feed-item" style="animation-delay:${i*0.04}s">
+          <span class="mc-feed-icon">${esc(a.icon || '🦊')}</span>
+          <div class="mc-feed-content">
+            <div class="mc-feed-action">${a.project ? `<span class="mc-feed-project">${esc(a.project)}</span> — ` : ''}${esc(a.action)}</div>
+            <div class="mc-feed-time">${esc(a.actor || 'sacha')} · ${ago}</div>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+      document.getElementById('mcActivity').innerHTML = html;
+    }
+
+    function renderMC() {
+      // Action required (reuse existing)
+      document.getElementById('mcAction').innerHTML = renderActionRequired();
+      renderMCProjects();
+      renderMCActivity();
+    }
+
+    async function loadMC() {
+      await Promise.all([loadMCProjects(), loadMCActivity()]);
+      if (currentTab === 'mc') renderMC();
+    }
+
     function renderAll() {
       renderSystem();
       renderOverview();
       renderTasks();
       renderCrons();
       renderFiles();
+      if (currentTab === 'mc') renderMC();
     }
 
     const STATUT_MAP = {'backlog':'Backlog','a-relire':'A relire','en-cours':'En cours','attente-js':'Attente JS','done':'Done'};
@@ -1247,6 +1426,7 @@
           localStorage.setItem('tasks', JSON.stringify(tasks));
         }
       } catch {}
+      await loadMC();
       renderAll();
       document.getElementById('updated').textContent = `Mis à jour ${new Date().toLocaleTimeString('fr-FR')}`;
       setTimeout(() => btn.classList.remove('spinning'), 500);
@@ -1275,9 +1455,11 @@
     if (cached) tasks = JSON.parse(cached);
     if (window.__CACHED_TASKS) { tasks = parse(window.__CACHED_TASKS); localStorage.setItem('tasks', JSON.stringify(tasks)); }
     renderAll();
+    loadMC(); // Load mission control data
     document.getElementById('updated').textContent = `Données du ${new Date().toLocaleDateString('fr-FR')}`;
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     setInterval(refresh, 5*60*1000);
+    setInterval(loadMC, 60*1000); // Refresh MC every minute
 
     // ═══ Notifications ═══
     let notifications = [];
