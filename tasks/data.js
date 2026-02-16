@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 00:00
+// Auto-generated 2026-02-16 00:32
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,38 +23,24 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 50,
-    "uptime": "5 days, 17:59",
+    "ramPct": 51,
+    "uptime": "5 days, 18:32",
     "load": "",
-    "updated": "01:00"
+    "updated": "01:32"
   },
   "crons": [
-    {
-      "name": "🔧 Cron Health Check",
-      "enabled": false,
-      "lastStatus": "ok",
-      "lastRun": 1771110045250,
-      "nextRun": null
-    },
-    {
-      "name": "🔧 Daily Cron Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771115400018,
-      "nextRun": 1771201800000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771198260018,
-      "nextRun": 1771201860000
-    },
     {
       "name": "🔍 Daily Self-Improvement Review",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771117200017,
+      "nextRun": 1771203600000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771200000018,
       "nextRun": 1771203600000
     },
     {
@@ -81,16 +67,20 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771209000000
     },
     {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771210800000
+    },
+    {
+      "name": "🎯 Model Assignment Optimizer",
+      "enabled": true,
+      "lastRun": null,
+      "nextRun": 1771211700000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -123,7 +113,6 @@ window.__DASHBOARD_DATA = {
     {
       "name": "Weekly Infra Monitor",
       "enabled": true,
-      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771228800000
     },
@@ -170,6 +159,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771279200000
     },
     {
+      "name": "🔧 Daily Cron Optimizer",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771115400018,
+      "nextRun": 1771288200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -179,10 +175,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
+      "lastStatus": "ok",
       "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 00:00"
+  "generated": "2026-02-16 00:32"
 };
