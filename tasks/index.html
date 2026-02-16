@@ -179,14 +179,25 @@
     .cron-item.clickable { cursor: pointer; }
     .cron-item.clickable:active { background: rgba(255,255,255,0.08); }
     .cron-findings {
-      display: none; padding: 14px 16px; margin: -2px 0 8px;
-      background: rgba(255,255,255,0.04); border-radius: 0 0 10px 10px;
+      display: none; padding: 0; margin: -2px 0 8px;
+      background: rgba(255,255,255,0.03); border-radius: 0 0 10px 10px;
       font-size: 14px; line-height: 1.6; color: var(--text-secondary);
-      white-space: pre-wrap; word-break: break-word;
       border-left: 2px solid var(--accent);
+      max-height: 400px; overflow-y: auto;
     }
     .cron-findings.open { display: block; }
-    .cron-chevron { font-size: 10px; margin-left: 6px; transition: transform 0.2s; color: var(--text-secondary); }
+    .cron-run-entry {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .cron-run-entry:last-child { border-bottom: none; }
+    .cron-run-date {
+      font-size: 11px; font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+    }
+    .cron-run-summary { font-size: 13px; color: var(--text-secondary); }
+    .cron-chevron { font-size: 12px; margin-left: 6px; transition: transform 0.2s; color: var(--text-secondary); }
     .cron-chevron.open { transform: rotate(90deg); }
 
     /* ═══ Stats Cards ═══ */
@@ -509,14 +520,25 @@
       crons.forEach((c, idx) => {
         const icon = c.lastStatus === 'ok' ? '✅' : c.lastStatus === 'error' ? '❌' : '⏸';
         const lastStr = c.lastRun ? timeAgo(c.lastRun) : 'jamais';
-        const hasFindings = !!c.findings;
-        html += `<div class="cron-item${hasFindings ? ' clickable' : ''}" ${hasFindings ? `onclick="toggleFindings(${idx})"` : ''}>
+        const hasData = !!(c.history && c.history.length) || !!c.findings;
+        html += `<div class="cron-item${hasData ? ' clickable' : ''}" ${hasData ? `onclick="toggleFindings(${idx})"` : ''}>
           <span class="cron-name">${icon} ${esc(c.name)}</span>
           <span class="cron-time">⏱ ${lastStr}</span>
-          ${hasFindings ? `<span class="cron-chevron" id="chev-${idx}">▶</span>` : ''}
+          ${hasData ? `<span class="cron-chevron" id="chev-${idx}">▶</span>` : ''}
         </div>`;
-        if (hasFindings) {
-          html += `<div class="cron-findings" id="findings-${idx}">${esc(c.findings)}</div>`;
+        if (hasData) {
+          html += `<div class="cron-findings" id="findings-${idx}">`;
+          if (c.history && c.history.length) {
+            c.history.forEach(r => {
+              html += `<div class="cron-run-entry">
+                <div class="cron-run-date">📅 ${esc(r.date || new Date(r.ts).toLocaleString('fr-FR'))}</div>
+                <div class="cron-run-summary">${esc(r.summary || '')}</div>
+              </div>`;
+            });
+          } else if (c.findings) {
+            html += `<div class="cron-run-entry"><div class="cron-run-summary">${esc(c.findings)}</div></div>`;
+          }
+          html += `</div>`;
         }
       });
       html += '</div></div>';
