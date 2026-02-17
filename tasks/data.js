@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 07:02
+// Auto-generated 2026-02-17 08:08
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 59,
-    "uptime": "7 days,  1:01",
+    "ramPct": 57,
+    "uptime": "7 days,  2:07",
     "load": "",
-    "updated": "08:02"
+    "updated": "09:08"
   },
   "crons": [
     {
@@ -37,45 +37,17 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771310812024,
-      "nextRun": 1771311600000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771308124076,
-      "nextRun": 1771311600000
-    },
-    {
-      "name": "🎯 Daily Task Proposal",
-      "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
-      "nextRun": 1771311600000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771311502943,
-      "nextRun": 1771311622920
-    },
-    {
-      "name": "☕ Podcast du matin",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771227000018,
-      "nextRun": 1771313400000
-    },
-    {
       "name": "📈 Brief marchés + reco",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771228800019,
+      "nextRun": 1771315200000
+    },
+    {
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771314300319,
       "nextRun": 1771315200000
     },
     {
@@ -84,6 +56,20 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "error",
       "lastRun": 1771304554456,
       "nextRun": 1771315200000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771311735298,
+      "nextRun": 1771315200000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771315102940,
+      "nextRun": 1771315222920
     },
     {
       "name": "🦊 Morning Wow",
@@ -177,6 +163,20 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771390800000
     },
     {
+      "name": "🎯 Daily Task Proposal",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771311776422,
+      "nextRun": 1771398000000
+    },
+    {
+      "name": "☕ Podcast du matin",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771313400021,
+      "nextRun": 1771399800000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1770991200008,
+      "lastRun": 1771288623943,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 07:02"
+  "generated": "2026-02-17 08:08"
 };
