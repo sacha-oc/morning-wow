@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 10:03
+// Auto-generated 2026-02-17 11:15
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,53 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 52,
-    "uptime": "7 days,  4:02",
+    "ramPct": 51,
+    "uptime": "7 days,  5:14",
     "load": "",
-    "updated": "11:03"
+    "updated": "12:15"
   },
   "crons": [
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": false,
-      "lastStatus": "error",
-      "lastRun": 1771318200237,
-      "nextRun": null
-    },
-    {
-      "name": "🧪 Feature du jour — Secretair",
-      "enabled": false,
+      "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771245000021,
-      "nextRun": null
+      "lastRun": 1771325281055,
+      "nextRun": 1771326900000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771318807104,
-      "nextRun": 1771322400000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771322309578,
-      "nextRun": 1771322422920
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771304497861,
-      "nextRun": 1771326000000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771315443824,
-      "nextRun": 1771326000000
+      "lastRun": 1771322400019,
+      "nextRun": 1771329600000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771326124139,
+      "nextRun": 1771329600000
     },
     {
       "name": "🔍 Midday Self-Check",
@@ -77,6 +56,20 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771246800017,
       "nextRun": 1771333200000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771315443824,
+      "nextRun": 1771336800000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771304497861,
+      "nextRun": 1771347600000
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -107,25 +100,11 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771380000000
     },
     {
-      "name": "🧠 Daily LLM Config Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771209000008,
-      "nextRun": 1771381800000
-    },
-    {
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
       "lastStatus": "error",
       "lastRun": 1771209066257,
       "nextRun": 1771381800000
-    },
-    {
-      "name": "🎯 Model Assignment Optimizer",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771298161267,
-      "nextRun": 1771384500000
     },
     {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
@@ -203,14 +182,7 @@ window.__DASHBOARD_DATA = {
       "lastStatus": null,
       "lastRun": null,
       "nextRun": 1772352000000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771304497861,
-      "nextRun": 1771326000000
     }
   ],
-  "generated": "2026-02-17 10:03"
+  "generated": "2026-02-17 11:15"
 };
