@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 16:00
+// Auto-generated 2026-02-17 19:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "7 days,  9:59",
+    "uptime": "7 days, 12:59",
     "load": "",
-    "updated": "17:00"
+    "updated": "20:00"
   },
   "crons": [
     {
@@ -40,22 +40,15 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771333624762,
-      "nextRun": 1771344000000
+      "lastRun": 1771344000014,
+      "nextRun": 1771354800000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771340500765,
-      "nextRun": 1771344000000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771326000021,
-      "nextRun": 1771347600000
+      "lastRun": 1771351200013,
+      "nextRun": 1771354800000
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -63,6 +56,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771279200022,
       "nextRun": 1771365600000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771347600317,
+      "nextRun": 1771369200000
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -177,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 16:00"
+  "generated": "2026-02-17 19:00"
 };
