@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 05:06
+// Auto-generated 2026-02-17 06:02
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "6 days, 23:05",
+    "ramPct": 57,
+    "uptime": "7 days, 1 min",
     "load": "",
-    "updated": "06:06"
+    "updated": "07:02"
   },
   "crons": [
     {
@@ -37,46 +37,25 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771304186281,
-      "nextRun": 1771304302920
-    },
-    {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771278300013,
-      "nextRun": 1771304400000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771261217058,
-      "nextRun": 1771304400000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771293799990,
-      "nextRun": 1771304400000
+      "lastRun": 1771307100023,
+      "nextRun": 1771308000000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771300800023,
-      "nextRun": 1771304400000
+      "lastRun": 1771304763162,
+      "nextRun": 1771308000000
     },
     {
-      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
-      "nextRun": 1771304400000
+      "lastStatus": "ok",
+      "lastRun": 1771307902940,
+      "nextRun": 1771308022920
     },
     {
       "name": "🎯 Daily Task Proposal",
@@ -100,6 +79,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771315200000
     },
     {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771304554456,
+      "nextRun": 1771315200000
+    },
+    {
       "name": "🦊 Morning Wow",
       "enabled": true,
       "lastStatus": "ok",
@@ -119,6 +105,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771232400016,
       "nextRun": 1771318800000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771304497861,
+      "nextRun": 1771326000000
     },
     {
       "name": "🔍 Midday Self-Check",
@@ -177,6 +170,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771384500000
     },
     {
+      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771304792490,
+      "nextRun": 1771390800000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771228800019,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 05:06"
+  "generated": "2026-02-17 06:02"
 };
