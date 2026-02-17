@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 01:06
+// Auto-generated 2026-02-17 02:07
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,33 +23,12 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 50,
-    "uptime": "6 days, 19:05",
+    "ramPct": 51,
+    "uptime": "6 days, 20:06",
     "load": "",
-    "updated": "02:06"
+    "updated": "03:07"
   },
   "crons": [
-    {
-      "name": "🔍 Daily Self-Improvement Review",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771203600018,
-      "nextRun": 1771290000000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771286400022,
-      "nextRun": 1771290000000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771289902934,
-      "nextRun": 1771290022920
-    },
     {
       "name": "Daily updates - all tools",
       "enabled": true,
@@ -63,6 +42,20 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771272018432,
       "nextRun": 1771293600000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771290184078,
+      "nextRun": 1771293600000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771293502929,
+      "nextRun": 1771293622920
     },
     {
       "name": "🧠 Daily LLM Config Optimizer",
@@ -177,6 +170,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771374600000
     },
     {
+      "name": "🔍 Daily Self-Improvement Review",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771290087620,
+      "nextRun": 1771376400000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -200,10 +200,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
+      "lastStatus": "ok",
+      "lastRun": 1771231200008,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 01:06"
+  "generated": "2026-02-17 02:07"
 };
