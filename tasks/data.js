@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 09:00
+// Auto-generated 2026-02-17 10:03
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 56,
-    "uptime": "7 days,  2:59",
+    "ramPct": 52,
+    "uptime": "7 days,  4:02",
     "load": "",
-    "updated": "10:00"
+    "updated": "11:03"
   },
   "crons": [
     {
@@ -44,25 +44,18 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "🏥 Health data check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771232400016,
-      "nextRun": 1771318800000
-    },
-    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771315676815,
-      "nextRun": 1771318800000
+      "lastRun": 1771318807104,
+      "nextRun": 1771322400000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771318765556,
-      "nextRun": 1771318822920
+      "lastRun": 1771322309578,
+      "nextRun": 1771322422920
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -177,6 +170,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771404300000
     },
     {
+      "name": "🏥 Health data check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771318800057,
+      "nextRun": 1771405200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -200,10 +200,17 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
+      "lastStatus": null,
       "lastRun": null,
       "nextRun": 1772352000000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771304497861,
+      "nextRun": 1771326000000
     }
   ],
-  "generated": "2026-02-17 09:00"
+  "generated": "2026-02-17 10:03"
 };
