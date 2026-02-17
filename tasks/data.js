@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 02:07
+// Auto-generated 2026-02-17 03:03
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,53 +23,25 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "6 days, 20:06",
+    "ramPct": 52,
+    "uptime": "6 days, 21:02",
     "load": "",
-    "updated": "03:07"
+    "updated": "04:03"
   },
   "crons": [
     {
-      "name": "Daily updates - all tools",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771207200010,
-      "nextRun": 1771293600000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771272018432,
-      "nextRun": 1771293600000
-    },
-    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771290184078,
-      "nextRun": 1771293600000
+      "lastStatus": "ok",
+      "lastRun": 1771293971035,
+      "nextRun": 1771297200000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771293502929,
-      "nextRun": 1771293622920
-    },
-    {
-      "name": "🧠 Daily LLM Config Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771209000008,
-      "nextRun": 1771295400000
-    },
-    {
-      "name": "📚 KB Maintenance (daily)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771209066257,
-      "nextRun": 1771295400000
+      "lastRun": 1771297094734,
+      "nextRun": 1771297222920
     },
     {
       "name": "🎯 Model Assignment Optimizer",
@@ -90,6 +62,13 @@ window.__DASHBOARD_DATA = {
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771261217058,
+      "nextRun": 1771304400000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771293799990,
       "nextRun": 1771304400000
     },
     {
@@ -177,6 +156,27 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771376400000
     },
     {
+      "name": "Daily updates - all tools",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771293698136,
+      "nextRun": 1771380000000
+    },
+    {
+      "name": "🧠 Daily LLM Config Optimizer",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771209000008,
+      "nextRun": 1771381800000
+    },
+    {
+      "name": "📚 KB Maintenance (daily)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771209066257,
+      "nextRun": 1771381800000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771231200008,
+      "lastRun": 1771228800019,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 02:07"
+  "generated": "2026-02-17 03:03"
 };
