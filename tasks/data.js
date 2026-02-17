@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 13:07
+// Auto-generated 2026-02-17 16:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,45 +24,31 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 50,
-    "uptime": "7 days,  7:06",
+    "uptime": "7 days,  9:59",
     "load": "",
-    "updated": "14:07"
+    "updated": "17:00"
   },
   "crons": [
     {
-      "name": "🔍 Midday Self-Check",
-      "enabled": true,
+      "name": "💬 Notion Comments Check",
+      "enabled": false,
       "lastStatus": "ok",
-      "lastRun": 1771246800017,
-      "nextRun": 1771333200000
+      "lastRun": 1771336800973,
+      "nextRun": null
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771329681541,
-      "nextRun": 1771333200000
+      "lastRun": 1771333624762,
+      "nextRun": 1771344000000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771329727159,
-      "nextRun": 1771333200000
-    },
-    {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771332316965,
-      "nextRun": 1771333200000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771326583231,
-      "nextRun": 1771336800000
+      "lastRun": 1771340500765,
+      "nextRun": 1771344000000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -156,6 +142,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771405200000
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771333304968,
+      "nextRun": 1771419600000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -180,9 +173,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771319803929,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 13:07"
+  "generated": "2026-02-17 16:00"
 };
