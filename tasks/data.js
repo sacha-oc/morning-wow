@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 11:15
+// Auto-generated 2026-02-17 12:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,24 +23,17 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "7 days,  5:14",
+    "ramPct": 53,
+    "uptime": "7 days, 6 hrs",
     "load": "",
-    "updated": "12:15"
+    "updated": "13:01"
   },
   "crons": [
     {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771325281055,
-      "nextRun": 1771326900000
-    },
-    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771322400019,
+      "lastStatus": "ok",
+      "lastRun": 1771326832116,
       "nextRun": 1771329600000
     },
     {
@@ -48,6 +41,13 @@ window.__DASHBOARD_DATA = {
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771326124139,
+      "nextRun": 1771329600000
+    },
+    {
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771328700017,
       "nextRun": 1771329600000
     },
     {
@@ -61,14 +61,14 @@ window.__DASHBOARD_DATA = {
       "name": "💬 Notion Comments Check",
       "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771315443824,
+      "lastRun": 1771326583231,
       "nextRun": 1771336800000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771304497861,
+      "lastRun": 1771326000021,
       "nextRun": 1771347600000
     },
     {
@@ -179,10 +179,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": null,
-      "lastRun": null,
+      "lastStatus": "ok",
+      "lastRun": 1771319803929,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 11:15"
+  "generated": "2026-02-17 12:01"
 };
