@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 04:00
+// Auto-generated 2026-02-17 05:06
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,30 +23,27 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 52,
-    "uptime": "6 days, 21:59",
+    "ramPct": 51,
+    "uptime": "6 days, 23:05",
     "load": "",
-    "updated": "05:00"
+    "updated": "06:06"
   },
   "crons": [
     {
-      "id": "3af1c453-e57b-4d58-b35b-a53479e555a7",
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
+      "name": "🧪 Feature du jour — Secretair",
+      "enabled": false,
       "lastStatus": "ok",
-      "lastRun": 1771297353491,
-      "nextRun": 1771300800000
+      "lastRun": 1771245000021,
+      "nextRun": null
     },
     {
-      "id": "bb279703-1faf-4e24-ad47-48f26a3decfe",
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771300779111,
-      "nextRun": 1771300822920
+      "lastRun": 1771304186281,
+      "nextRun": 1771304302920
     },
     {
-      "id": "804df19b-a1d9-4b07-900c-28a278770325",
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
       "lastStatus": "ok",
@@ -54,7 +51,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
-      "id": "5c3b61b7-efa1-4475-9dd7-6de514050273",
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
@@ -62,7 +58,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
-      "id": "83ae3a32-068d-4fcf-9fc2-02dfbc9207f5",
       "name": "💬 Notion Comments Check",
       "enabled": true,
       "lastStatus": "error",
@@ -70,7 +65,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
-      "id": "7397754d-94b2-4ee0-8e62-83ae2c8baa90",
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771300800023,
+      "nextRun": 1771304400000
+    },
+    {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
       "enabled": true,
       "lastStatus": null,
@@ -78,7 +79,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
-      "id": "6bba3ccb-ea18-4d07-8879-efd9aa4b0cd5",
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
       "lastStatus": null,
@@ -86,7 +86,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771311600000
     },
     {
-      "id": "1095c95a-dc98-4fa5-b50e-b77ee7d6f6d2",
       "name": "☕ Podcast du matin",
       "enabled": true,
       "lastStatus": "ok",
@@ -94,7 +93,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771313400000
     },
     {
-      "id": "5af27844-0159-4d25-a36c-69d296b0325c",
       "name": "📈 Brief marchés + reco",
       "enabled": true,
       "lastStatus": "ok",
@@ -102,7 +100,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771315200000
     },
     {
-      "id": "14e685d1-b96a-4bd9-a22b-12e2ea65b25e",
       "name": "🦊 Morning Wow",
       "enabled": true,
       "lastStatus": "ok",
@@ -110,7 +107,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771317000000
     },
     {
-      "id": "b8e2e55e-b9f1-48cf-8d1b-05d0da51c274",
       "name": "🔒 Security Audit — Secretair",
       "enabled": true,
       "lastStatus": "ok",
@@ -118,7 +114,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771317900000
     },
     {
-      "id": "06516d52-84f9-4231-aa65-677d64f8fcdb",
       "name": "🏥 Health data check",
       "enabled": true,
       "lastStatus": "ok",
@@ -126,15 +121,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771318800000
     },
     {
-      "id": "e743df89-aa1f-4a68-8437-427aae95346f",
-      "name": "🧪 Feature du jour — Secretair",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771245000021,
-      "nextRun": 1771331400000
-    },
-    {
-      "id": "1267134b-b382-4e17-b116-b84eeee88bf6",
       "name": "🔍 Midday Self-Check",
       "enabled": true,
       "lastStatus": "ok",
@@ -142,7 +128,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771333200000
     },
     {
-      "id": "9c3c088e-1f99-4db4-8654-54e2afe3d9ad",
       "name": "🌙 Night Shift — Notion Tasks",
       "enabled": true,
       "lastStatus": "ok",
@@ -150,7 +135,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771365600000
     },
     {
-      "id": "311306f0-dd1e-4f7f-a98d-01363c648714",
       "name": "🔧 Daily Cron Optimizer",
       "enabled": true,
       "lastStatus": "ok",
@@ -158,7 +142,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771374600000
     },
     {
-      "id": "af85d634-eac4-4db5-a745-79de07892b13",
       "name": "🔍 Daily Self-Improvement Review",
       "enabled": true,
       "lastStatus": "ok",
@@ -166,7 +149,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771376400000
     },
     {
-      "id": "ade8c183-209f-4c0c-a0b3-9c6c3aa65881",
       "name": "Daily updates - all tools",
       "enabled": true,
       "lastStatus": "ok",
@@ -174,7 +156,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771380000000
     },
     {
-      "id": "7e81c0ff-2978-4b90-8549-13045c66381f",
       "name": "🧠 Daily LLM Config Optimizer",
       "enabled": true,
       "lastStatus": "ok",
@@ -182,7 +163,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771381800000
     },
     {
-      "id": "293036f0-110b-4ac7-b5ab-47f6b3cd67b6",
       "name": "📚 KB Maintenance (daily)",
       "enabled": true,
       "lastStatus": "error",
@@ -190,7 +170,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771381800000
     },
     {
-      "id": "a2cbd096-5a09-4d02-bc80-83725b122734",
       "name": "🎯 Model Assignment Optimizer",
       "enabled": true,
       "lastStatus": "error",
@@ -198,7 +177,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771384500000
     },
     {
-      "id": "c064fe50-aac1-4e3d-9d19-e1553387627a",
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -206,7 +184,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771596000000
     },
     {
-      "id": "ff164798-f0a9-4945-b0b8-1a1b380230e5",
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
       "lastStatus": "error",
@@ -214,7 +191,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771815600000
     },
     {
-      "id": "96313f87-a6a5-4888-9e0e-5cf6fba540ae",
       "name": "Weekly Infra Monitor",
       "enabled": true,
       "lastStatus": "ok",
@@ -222,7 +198,6 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771833600000
     },
     {
-      "id": "6bcc9f67-2cbd-44a4-aabd-3a38dfee401e",
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
@@ -230,5 +205,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 04:00"
+  "generated": "2026-02-17 05:06"
 };
