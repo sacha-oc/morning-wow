@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 08:08
+// Auto-generated 2026-02-17 09:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,67 +23,25 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 57,
-    "uptime": "7 days,  2:07",
+    "ramPct": 56,
+    "uptime": "7 days,  2:59",
     "load": "",
-    "updated": "09:08"
+    "updated": "10:00"
   },
   "crons": [
+    {
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
+      "enabled": false,
+      "lastStatus": "error",
+      "lastRun": 1771318200237,
+      "nextRun": null
+    },
     {
       "name": "🧪 Feature du jour — Secretair",
       "enabled": false,
       "lastStatus": "ok",
       "lastRun": 1771245000021,
       "nextRun": null
-    },
-    {
-      "name": "📈 Brief marchés + reco",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771228800019,
-      "nextRun": 1771315200000
-    },
-    {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771314300319,
-      "nextRun": 1771315200000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771304554456,
-      "nextRun": 1771315200000
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771311735298,
-      "nextRun": 1771315200000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771315102940,
-      "nextRun": 1771315222920
-    },
-    {
-      "name": "🦊 Morning Wow",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771230600025,
-      "nextRun": 1771317000000
-    },
-    {
-      "name": "🔒 Security Audit — Secretair",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771231500017,
-      "nextRun": 1771317900000
     },
     {
       "name": "🏥 Health data check",
@@ -93,10 +51,31 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771318800000
     },
     {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771315676815,
+      "nextRun": 1771318800000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771318765556,
+      "nextRun": 1771318822920
+    },
+    {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771304497861,
+      "nextRun": 1771326000000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771315443824,
       "nextRun": 1771326000000
     },
     {
@@ -177,6 +156,27 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771399800000
     },
     {
+      "name": "📈 Brief marchés + reco",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771315200135,
+      "nextRun": 1771401600000
+    },
+    {
+      "name": "🦊 Morning Wow",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771317188509,
+      "nextRun": 1771403400000
+    },
+    {
+      "name": "🔒 Security Audit — Secretair",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771318081786,
+      "nextRun": 1771404300000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771288623943,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 08:08"
+  "generated": "2026-02-17 09:00"
 };
