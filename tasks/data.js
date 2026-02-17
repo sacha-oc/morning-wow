@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 00:00
+// Auto-generated 2026-02-17 01:06
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,39 +23,32 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "6 days, 17:59",
+    "ramPct": 50,
+    "uptime": "6 days, 19:05",
     "load": "",
-    "updated": "01:00"
+    "updated": "02:06"
   },
   "crons": [
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771279855822,
-      "nextRun": 1771286400000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771286386235,
-      "nextRun": 1771286422920
-    },
-    {
-      "name": "🔧 Daily Cron Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771201800017,
-      "nextRun": 1771288200000
-    },
     {
       "name": "🔍 Daily Self-Improvement Review",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771203600018,
       "nextRun": 1771290000000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771286400022,
+      "nextRun": 1771290000000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771289902934,
+      "nextRun": 1771290022920
     },
     {
       "name": "Daily updates - all tools",
@@ -109,15 +102,15 @@ window.__DASHBOARD_DATA = {
     {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771229555365,
+      "lastStatus": null,
+      "lastRun": null,
       "nextRun": 1771304400000
     },
     {
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771258175798,
+      "lastStatus": null,
+      "lastRun": null,
       "nextRun": 1771311600000
     },
     {
@@ -177,6 +170,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771365600000
     },
     {
+      "name": "🔧 Daily Cron Optimizer",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771288200027,
+      "nextRun": 1771374600000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -200,10 +200,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771211833053,
+      "lastStatus": null,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 00:00"
+  "generated": "2026-02-17 01:06"
 };
