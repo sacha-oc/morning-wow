@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 12:01
+// Auto-generated 2026-02-17 13:07
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,38 +23,38 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 53,
-    "uptime": "7 days, 6 hrs",
+    "ramPct": 50,
+    "uptime": "7 days,  7:06",
     "load": "",
-    "updated": "13:01"
+    "updated": "14:07"
   },
   "crons": [
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771326832116,
-      "nextRun": 1771329600000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771326124139,
-      "nextRun": 1771329600000
-    },
-    {
-      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771328700017,
-      "nextRun": 1771329600000
-    },
     {
       "name": "🔍 Midday Self-Check",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771246800017,
+      "nextRun": 1771333200000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771329681541,
+      "nextRun": 1771333200000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771329727159,
+      "nextRun": 1771333200000
+    },
+    {
+      "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771332316965,
       "nextRun": 1771333200000
     },
     {
@@ -184,5 +184,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 12:01"
+  "generated": "2026-02-17 13:07"
 };
