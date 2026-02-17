@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 06:02
+// Auto-generated 2026-02-17 07:02
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 57,
-    "uptime": "7 days, 1 min",
+    "ramPct": 59,
+    "uptime": "7 days,  1:01",
     "load": "",
-    "updated": "07:02"
+    "updated": "08:02"
   },
   "crons": [
     {
@@ -39,23 +39,16 @@ window.__DASHBOARD_DATA = {
     {
       "name": "🇫🇷 JO Hiver 2026 - Alertes Live",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771307100023,
-      "nextRun": 1771308000000
+      "lastStatus": "ok",
+      "lastRun": 1771310812024,
+      "nextRun": 1771311600000
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771304763162,
-      "nextRun": 1771308000000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771307902940,
-      "nextRun": 1771308022920
+      "lastRun": 1771308124076,
+      "nextRun": 1771311600000
     },
     {
       "name": "🎯 Daily Task Proposal",
@@ -63,6 +56,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": null,
       "lastRun": null,
       "nextRun": 1771311600000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771311502943,
+      "nextRun": 1771311622920
     },
     {
       "name": "☕ Podcast du matin",
@@ -201,9 +201,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1770991200008,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 06:02"
+  "generated": "2026-02-17 07:02"
 };
