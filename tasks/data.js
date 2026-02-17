@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-16 22:11
+// Auto-generated 2026-02-17 00:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,46 +23,25 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 54,
-    "uptime": "6 days, 16:10",
+    "ramPct": 51,
+    "uptime": "6 days, 17:59",
     "load": "",
-    "updated": "23:11"
+    "updated": "01:00"
   },
   "crons": [
-    {
-      "name": "🌙 Night Shift — Notion Tasks",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771192800020,
-      "nextRun": 1771279200000
-    },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771275648926,
-      "nextRun": 1771279200000
+      "lastRun": 1771279855822,
+      "nextRun": 1771286400000
     },
     {
       "name": "💬 Task Chat — Reply to unread",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771279157027,
-      "nextRun": 1771279222920
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771261217058,
-      "nextRun": 1771282800000
-    },
-    {
-      "name": "💬 Notion Comments Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771272018432,
-      "nextRun": 1771282800000
+      "lastRun": 1771286386235,
+      "nextRun": 1771286422920
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -83,6 +62,13 @@ window.__DASHBOARD_DATA = {
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771207200010,
+      "nextRun": 1771293600000
+    },
+    {
+      "name": "💬 Notion Comments Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771272018432,
       "nextRun": 1771293600000
     },
     {
@@ -114,17 +100,24 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771304400000
     },
     {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771261217058,
+      "nextRun": 1771304400000
+    },
+    {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1771229555365,
       "nextRun": 1771304400000
     },
     {
       "name": "🎯 Daily Task Proposal",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1771258175798,
       "nextRun": 1771311600000
     },
     {
@@ -177,6 +170,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771333200000
     },
     {
+      "name": "🌙 Night Shift — Notion Tasks",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771279200022,
+      "nextRun": 1771365600000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -205,5 +205,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-16 22:11"
+  "generated": "2026-02-17 00:00"
 };
