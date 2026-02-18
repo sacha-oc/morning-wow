@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-18 07:00
+// Auto-generated 2026-02-18 13:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 52,
-    "uptime": "8 days, 59 mins",
+    "ramPct": 60,
+    "uptime": "8 days, 7 hrs",
     "load": "",
-    "updated": "08:00"
+    "updated": "14:01"
   },
   "crons": [
     {
@@ -37,74 +37,32 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771333304968,
+      "nextRun": 1771419600000
+    },
+    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771387200018,
-      "nextRun": 1771398000000
+      "lastStatus": "error",
+      "lastRun": 1771408800017,
+      "nextRun": 1771419600000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771383600019,
-      "nextRun": 1771398000000
-    },
-    {
-      "name": "🎯 Daily Task Proposal",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771311776422,
-      "nextRun": 1771398000000
-    },
-    {
-      "name": "☕ Podcast du matin",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771313400021,
-      "nextRun": 1771399800000
-    },
-    {
-      "name": "📈 Brief marchés + reco",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771315200135,
-      "nextRun": 1771401600000
-    },
-    {
-      "name": "🦊 Morning Wow",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771317188509,
-      "nextRun": 1771403400000
-    },
-    {
-      "name": "🔒 Security Audit — Secretair",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771318081786,
-      "nextRun": 1771404300000
-    },
-    {
-      "name": "🏥 Health data check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771318800057,
-      "nextRun": 1771405200000
+      "lastRun": 1771416000014,
+      "nextRun": 1771419600000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "ok",
       "lastRun": 1771391090976,
-      "nextRun": 1771412400000
-    },
-    {
-      "name": "🔍 Midday Self-Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771333304968,
-      "nextRun": 1771419600000
+      "nextRun": 1771434059515
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -149,6 +107,48 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771477200000
     },
     {
+      "name": "🎯 Daily Task Proposal",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771398034134,
+      "nextRun": 1771484400000
+    },
+    {
+      "name": "☕ Podcast du matin",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771399824868,
+      "nextRun": 1771486200000
+    },
+    {
+      "name": "📈 Brief marchés + reco",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771401864705,
+      "nextRun": 1771488000000
+    },
+    {
+      "name": "🦊 Morning Wow",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771403400020,
+      "nextRun": 1771489800000
+    },
+    {
+      "name": "🔒 Security Audit — Secretair",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771404300012,
+      "nextRun": 1771490700000
+    },
+    {
+      "name": "🏥 Health data check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771405200019,
+      "nextRun": 1771491600000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -172,10 +172,10 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771319803929,
+      "lastStatus": null,
+      "lastRun": null,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-18 07:00"
+  "generated": "2026-02-18 13:01"
 };
