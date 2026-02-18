@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-18 13:01
+// Auto-generated 2026-02-18 16:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 60,
-    "uptime": "8 days, 7 hrs",
+    "ramPct": 50,
+    "uptime": "8 days,  9:59",
     "load": "",
-    "updated": "14:01"
+    "updated": "17:00"
   },
   "crons": [
     {
@@ -37,25 +37,18 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "🔍 Midday Self-Check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771333304968,
-      "nextRun": 1771419600000
-    },
-    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771408800017,
-      "nextRun": 1771419600000
+      "lastStatus": "ok",
+      "lastRun": 1771419689409,
+      "nextRun": 1771430400000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771416000014,
-      "nextRun": 1771419600000
+      "lastRun": 1771426800022,
+      "nextRun": 1771430400000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -149,6 +142,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771491600000
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771419600024,
+      "nextRun": 1771506000000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -177,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-18 13:01"
+  "generated": "2026-02-18 16:00"
 };
