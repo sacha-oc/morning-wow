@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-18 04:00
+// Auto-generated 2026-02-18 07:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "7 days, 21:59",
+    "ramPct": 52,
+    "uptime": "8 days, 59 mins",
     "load": "",
-    "updated": "05:00"
+    "updated": "08:00"
   },
   "crons": [
     {
@@ -40,22 +40,8 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771354800011,
-      "nextRun": 1771387200000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771369200013,
-      "nextRun": 1771390800000
-    },
-    {
-      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771304792490,
-      "nextRun": 1771390800000
+      "lastRun": 1771387200018,
+      "nextRun": 1771398000000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
@@ -107,6 +93,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771405200000
     },
     {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771391090976,
+      "nextRun": 1771412400000
+    },
+    {
       "name": "🔍 Midday Self-Check",
       "enabled": true,
       "lastStatus": "error",
@@ -149,6 +142,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771468200000
     },
     {
+      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771391513728,
+      "nextRun": 1771477200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -177,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-18 04:00"
+  "generated": "2026-02-18 07:00"
 };
