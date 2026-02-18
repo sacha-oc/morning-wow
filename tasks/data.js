@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-17 19:00
+// Auto-generated 2026-02-18 04:00
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 50,
-    "uptime": "7 days, 12:59",
+    "ramPct": 51,
+    "uptime": "7 days, 21:59",
     "load": "",
-    "updated": "20:00"
+    "updated": "05:00"
   },
   "crons": [
     {
@@ -40,57 +40,15 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771344000014,
-      "nextRun": 1771354800000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771351200013,
-      "nextRun": 1771354800000
-    },
-    {
-      "name": "🌙 Night Shift — Notion Tasks",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771279200022,
-      "nextRun": 1771365600000
+      "lastRun": 1771354800011,
+      "nextRun": 1771387200000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771347600317,
-      "nextRun": 1771369200000
-    },
-    {
-      "name": "🔧 Daily Cron Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771288200027,
-      "nextRun": 1771374600000
-    },
-    {
-      "name": "🔍 Daily Self-Improvement Review",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771290087620,
-      "nextRun": 1771376400000
-    },
-    {
-      "name": "Daily updates - all tools",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771293698136,
-      "nextRun": 1771380000000
-    },
-    {
-      "name": "📚 KB Maintenance (daily)",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771209066257,
-      "nextRun": 1771381800000
+      "lastRun": 1771369200013,
+      "nextRun": 1771390800000
     },
     {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
@@ -98,6 +56,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771304792490,
       "nextRun": 1771390800000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771383600019,
+      "nextRun": 1771398000000
     },
     {
       "name": "🎯 Daily Task Proposal",
@@ -149,6 +114,41 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771419600000
     },
     {
+      "name": "🌙 Night Shift — Notion Tasks",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771365600008,
+      "nextRun": 1771452000000
+    },
+    {
+      "name": "🔧 Daily Cron Optimizer",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771374600010,
+      "nextRun": 1771461000000
+    },
+    {
+      "name": "🔍 Daily Self-Improvement Review",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771376400018,
+      "nextRun": 1771462800000
+    },
+    {
+      "name": "Daily updates - all tools",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771380275640,
+      "nextRun": 1771466400000
+    },
+    {
+      "name": "📚 KB Maintenance (daily)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771381867123,
+      "nextRun": 1771468200000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -173,9 +173,9 @@ window.__DASHBOARD_DATA = {
       "name": "📊 Récap mensuel portfolio",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": null,
+      "lastRun": 1771319803929,
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-17 19:00"
+  "generated": "2026-02-18 04:00"
 };
