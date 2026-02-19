@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-19 13:04
+// Auto-generated 2026-02-19 16:02
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 51,
-    "uptime": "3:22",
+    "uptime": "6:20",
     "load": "",
-    "updated": "14:04"
+    "updated": "17:02"
   },
   "crons": [
     {
@@ -37,32 +37,25 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "🔍 Midday Self-Check",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771419600024,
-      "nextRun": 1771506000000
-    },
-    {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771495200028,
-      "nextRun": 1771506000000
+      "lastStatus": "ok",
+      "lastRun": 1771506189413,
+      "nextRun": 1771516800000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771502664773,
-      "nextRun": 1771506000000
+      "lastRun": 1771513200024,
+      "nextRun": 1771516800000
     },
     {
       "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771505904256,
-      "nextRun": 1771506804236
+      "lastRun": 1771516704258,
+      "nextRun": 1771517604236
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
@@ -156,6 +149,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771578000000
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771506000025,
+      "nextRun": 1771592400000
+    },
+    {
       "name": "Veille Business Hebdo — Vendredi 15h",
       "enabled": true,
       "lastStatus": "ok",
@@ -191,5 +191,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-19 13:04"
+  "generated": "2026-02-19 16:02"
 };
