@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-19 16:02
+// Auto-generated 2026-02-19 19:01
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,10 +23,10 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "6:20",
+    "ramPct": 52,
+    "uptime": "9:19",
     "load": "",
-    "updated": "17:02"
+    "updated": "20:01"
   },
   "crons": [
     {
@@ -39,30 +39,23 @@ window.__DASHBOARD_DATA = {
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771506189413,
-      "nextRun": 1771516800000
+      "lastStatus": "error",
+      "lastRun": 1771516800022,
+      "nextRun": 1771527600000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771513200024,
-      "nextRun": 1771516800000
+      "lastRun": 1771524000022,
+      "nextRun": 1771527600000
     },
     {
       "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771516704258,
-      "nextRun": 1771517604236
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771498859536,
-      "nextRun": 1771520459515
+      "lastRun": 1771527504255,
+      "nextRun": 1771528404236
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -70,6 +63,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "error",
       "lastRun": 1771452000022,
       "nextRun": 1771538400000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771520503873,
+      "nextRun": 1771542059515
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -191,5 +191,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-19 16:02"
+  "generated": "2026-02-19 19:01"
 };
