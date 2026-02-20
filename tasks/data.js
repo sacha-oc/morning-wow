@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-20 13:04
+// Auto-generated 2026-02-20 19:17
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -24,9 +24,9 @@ window.__DASHBOARD_DATA = {
   },
   "system": {
     "ramPct": 51,
-    "uptime": "1 day,  3:22",
+    "uptime": "1 day,  9:35",
     "load": "",
-    "updated": "14:04"
+    "updated": "20:17"
   },
   "crons": [
     {
@@ -37,46 +37,25 @@ window.__DASHBOARD_DATA = {
       "nextRun": null
     },
     {
-      "name": "🔍 Midday Self-Check",
+      "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
       "lastStatus": "ok",
-      "lastRun": 1771506000025,
-      "nextRun": 1771592400000
+      "lastRun": 1771612519806,
+      "nextRun": 1771613004236
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771581600021,
-      "nextRun": 1771592400000
+      "lastRun": 1771603640273,
+      "nextRun": 1771614000000
     },
     {
       "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771588800020,
-      "nextRun": 1771592400000
-    },
-    {
-      "name": "Email Sync (himalaya → Mission Control)",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771592304256,
-      "nextRun": 1771593204236
-    },
-    {
-      "name": "Veille Business Hebdo — Vendredi 15h",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1770991200008,
-      "nextRun": 1771596000000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771585272221,
-      "nextRun": 1771606859515
+      "lastRun": 1771611192300,
+      "nextRun": 1771614000000
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -84,6 +63,13 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771575455562,
       "nextRun": 1771624800000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771607569481,
+      "nextRun": 1771628459515
     },
     {
       "name": "🔧 Daily Cron Optimizer",
@@ -156,6 +142,13 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771664400000
     },
     {
+      "name": "🔍 Midday Self-Check",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771592400022,
+      "nextRun": 1771678800000
+    },
+    {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
       "lastStatus": "error",
@@ -191,5 +184,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-20 13:04"
+  "generated": "2026-02-20 19:17"
 };
