@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-20 19:17
+// Auto-generated 2026-02-21 06:35
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,74 +23,18 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 51,
-    "uptime": "1 day,  9:35",
+    "ramPct": 62,
+    "uptime": "1 day, 20:54",
     "load": "",
-    "updated": "20:17"
+    "updated": "07:35"
   },
   "crons": [
     {
-      "name": "💬 Notion Comments Check",
-      "enabled": false,
-      "lastStatus": "ok",
-      "lastRun": 1771336800973,
-      "nextRun": null
-    },
-    {
       "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771612519806,
-      "nextRun": 1771613004236
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771603640273,
-      "nextRun": 1771614000000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771611192300,
-      "nextRun": 1771614000000
-    },
-    {
-      "name": "🌙 Night Shift — Notion Tasks",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771575455562,
-      "nextRun": 1771624800000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771607569481,
-      "nextRun": 1771628459515
-    },
-    {
-      "name": "🔧 Daily Cron Optimizer",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771576810703,
-      "nextRun": 1771633800000
-    },
-    {
-      "name": "🔍 Daily Self-Improvement Review",
-      "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771576662793,
-      "nextRun": 1771635600000
-    },
-    {
-      "name": "Daily updates - all tools",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771575093042,
-      "nextRun": 1771639200000
+      "lastRun": 1771639641620,
+      "nextRun": 1771640004236
     },
     {
       "name": "📚 KB Maintenance (daily)",
@@ -100,11 +44,32 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771641000000
     },
     {
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771611192300,
+      "nextRun": 1771642800000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771603640273,
+      "nextRun": 1771646400000
+    },
+    {
       "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
       "enabled": true,
       "lastStatus": "error",
       "lastRun": 1771577452351,
       "nextRun": 1771650000000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771628459540,
+      "nextRun": 1771650059515
     },
     {
       "name": "🎯 Daily Task Proposal",
@@ -149,6 +114,34 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771678800000
     },
     {
+      "name": "🌙 Night Shift — Notion Tasks",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771627336817,
+      "nextRun": 1771711200000
+    },
+    {
+      "name": "🔧 Daily Cron Optimizer",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771634597736,
+      "nextRun": 1771720200000
+    },
+    {
+      "name": "🔍 Daily Self-Improvement Review",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771642100569,
+      "nextRun": 1771722000000
+    },
+    {
+      "name": "Daily updates - all tools",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771639673951,
+      "nextRun": 1771725600000
+    },
+    {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
       "lastStatus": "error",
@@ -184,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-20 19:17"
+  "generated": "2026-02-21 06:35"
 };
