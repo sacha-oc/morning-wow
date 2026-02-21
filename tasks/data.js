@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-21 10:41
+// Auto-generated 2026-02-21 13:42
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,39 +23,18 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 56,
-    "uptime": "2 days, 1 hr",
+    "ramPct": 55,
+    "uptime": "2 days,  4:01",
     "load": "",
-    "updated": "11:41"
+    "updated": "14:42"
   },
   "crons": [
     {
       "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
-      "lastStatus": "ok",
-      "lastRun": 1771667583657,
-      "nextRun": 1771667904236
-    },
-    {
-      "name": "📊 Dashboard Data Refresh",
-      "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771648447157,
-      "nextRun": 1771668000000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771652034652,
-      "nextRun": 1771668000000
-    },
-    {
-      "name": "🔧 System Health Monitor (API + Crons)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771655740165,
-      "nextRun": 1771671659515
+      "lastRun": 1771676618967,
+      "nextRun": 1771677804236
     },
     {
       "name": "🔍 Midday Self-Check",
@@ -63,6 +42,27 @@ window.__DASHBOARD_DATA = {
       "lastStatus": "ok",
       "lastRun": 1771592400022,
       "nextRun": 1771678800000
+    },
+    {
+      "name": "📊 Dashboard Data Refresh",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771670353431,
+      "nextRun": 1771678800000
+    },
+    {
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771676577802,
+      "nextRun": 1771678800000
+    },
+    {
+      "name": "🔧 System Health Monitor (API + Crons)",
+      "enabled": true,
+      "lastStatus": "ok",
+      "lastRun": 1771671681642,
+      "nextRun": 1771693259515
     },
     {
       "name": "🌙 Night Shift — Notion Tasks",
@@ -177,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-21 10:41"
+  "generated": "2026-02-21 13:42"
 };
