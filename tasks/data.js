@@ -1,4 +1,4 @@
-// Auto-generated 2026-02-21 06:35
+// Auto-generated 2026-02-21 10:41
 window.__DASHBOARD_DATA = {
   "health": {
     "date": "2026-02-14",
@@ -23,88 +23,39 @@ window.__DASHBOARD_DATA = {
     }
   },
   "system": {
-    "ramPct": 62,
-    "uptime": "1 day, 20:54",
+    "ramPct": 56,
+    "uptime": "2 days, 1 hr",
     "load": "",
-    "updated": "07:35"
+    "updated": "11:41"
   },
   "crons": [
     {
       "name": "Email Sync (himalaya → Mission Control)",
       "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771639641620,
-      "nextRun": 1771640004236
-    },
-    {
-      "name": "📚 KB Maintenance (daily)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771577452277,
-      "nextRun": 1771641000000
-    },
-    {
-      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771611192300,
-      "nextRun": 1771642800000
+      "lastStatus": "ok",
+      "lastRun": 1771667583657,
+      "nextRun": 1771667904236
     },
     {
       "name": "📊 Dashboard Data Refresh",
       "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771603640273,
-      "nextRun": 1771646400000
+      "lastRun": 1771648447157,
+      "nextRun": 1771668000000
     },
     {
-      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "name": "💬 Task Chat — Reply to unread (backup hourly, push via listener)",
       "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771577452351,
-      "nextRun": 1771650000000
+      "lastRun": 1771652034652,
+      "nextRun": 1771668000000
     },
     {
       "name": "🔧 System Health Monitor (API + Crons)",
       "enabled": true,
       "lastStatus": "error",
-      "lastRun": 1771628459540,
-      "nextRun": 1771650059515
-    },
-    {
-      "name": "🎯 Daily Task Proposal",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771577452384,
-      "nextRun": 1771657200000
-    },
-    {
-      "name": "☕ Podcast du matin",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771575085762,
-      "nextRun": 1771659000000
-    },
-    {
-      "name": "🦊 Morning Wow",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771489800019,
-      "nextRun": 1771662600000
-    },
-    {
-      "name": "🔒 Security Audit — Secretair",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771490700019,
-      "nextRun": 1771663500000
-    },
-    {
-      "name": "🏥 Health data check",
-      "enabled": true,
-      "lastStatus": "error",
-      "lastRun": 1771578000084,
-      "nextRun": 1771664400000
+      "lastRun": 1771655740165,
+      "nextRun": 1771671659515
     },
     {
       "name": "🔍 Midday Self-Check",
@@ -142,6 +93,55 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1771725600000
     },
     {
+      "name": "📚 KB Maintenance (daily)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771649486315,
+      "nextRun": 1771727400000
+    },
+    {
+      "name": "🔗 Social Profile Optimizer (LinkedIn + X)",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771659369564,
+      "nextRun": 1771736400000
+    },
+    {
+      "name": "🎯 Daily Task Proposal",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771577452384,
+      "nextRun": 1771743600000
+    },
+    {
+      "name": "☕ Podcast du matin",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771575085762,
+      "nextRun": 1771745400000
+    },
+    {
+      "name": "🦊 Morning Wow",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771489800019,
+      "nextRun": 1771749000000
+    },
+    {
+      "name": "🔒 Security Audit — Secretair",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771664708351,
+      "nextRun": 1771749900000
+    },
+    {
+      "name": "🏥 Health data check",
+      "enabled": true,
+      "lastStatus": "error",
+      "lastRun": 1771665212610,
+      "nextRun": 1771750800000
+    },
+    {
       "name": "🧠 Memory Self-Test (weekly)",
       "enabled": true,
       "lastStatus": "error",
@@ -177,5 +177,5 @@ window.__DASHBOARD_DATA = {
       "nextRun": 1772352000000
     }
   ],
-  "generated": "2026-02-21 06:35"
+  "generated": "2026-02-21 10:41"
 };
